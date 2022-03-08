@@ -4,6 +4,7 @@ import styles from "../../styles/LanguageMenu.module.css";
 import { useDispatch } from "react-redux";
 import LanguageAction from "../../redux/actions/LanguageAction";
 import Link from "next/link";
+import Image from "next/image";
 
 const LanguageMenu = () => {
   const [isListOpen, setIsListOpen] = useState(false);
@@ -24,8 +25,8 @@ const LanguageMenu = () => {
       >
         <Link href="/tr" >
           <a>
-            <div className={styles.toggle}>
-              <img src="/icon/tr.svg" width={24} />
+            <div className={styles.toggle}> 
+              <Image src="/icon/tr.svg" width={24} height={24} />
               <span className={styles.span}>Tr </span>
             </div>
           </a>
@@ -38,7 +39,8 @@ const LanguageMenu = () => {
               <Link href="/en">
                 <a>
                   <div className={styles.toggle}>
-                    <img src="/icon/us.svg" width={24} />
+                    <Image src="/icon/us.svg" width={24} height={24} />
+
                     <span className={styles.span}>En</span>
                   </div>
                 </a>
@@ -49,7 +51,8 @@ const LanguageMenu = () => {
               <Link href="./en">
                 <a>
                   <div className={styles.toggle}>
-                    <img src="/icon/fr.svg" width={24} />
+                    <Image src="/icon/fr.svg" width={24} height={24} />
+
                     <span className={styles.span}>Fr</span>
                   </div>
                 </a>

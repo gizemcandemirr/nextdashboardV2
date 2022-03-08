@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.sidebarLogo > img{
+.sidebarLogo > Image{
     height:40px;
     padding: 5px;
 }
@@ -29,9 +29,10 @@
     justify-content: space-between;
 }
 
-.sidebarItemInnerLeft > img {
+.itemImg {
     margin-right: 5px;
     font-size: 1rem;
+    padding: 3px;
 }
 .sidebarItemInnerLeft > span{
     text-transform: capitalize;
@@ -66,7 +67,7 @@
     );
     color:var(--txt-white)
 }
-.Active > .sidebarItemInnerLeft > img {
+.Active > .sidebarItemInnerLeft > Image {
     margin-right: 5px;
     font-size: 1rem;
 }

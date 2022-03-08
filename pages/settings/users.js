@@ -29,9 +29,7 @@ const customerTableHead =[
 const users = () => {
   return (
     <div>
-    <h2 className='page-header'>
-      Customers
-    </h2>
+   
  
      <div className='row'>
        <div className='col-12'> 

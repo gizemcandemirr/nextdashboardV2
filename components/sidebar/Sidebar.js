@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../../styles/Sidebar.module.css'
 import { useRouter } from 'next/router'
+import Image from "next/image";
 
 
 import sidebar_items from '../../assets/JsonData/sidebar_routes.json'
@@ -16,13 +17,13 @@ const SidebarItem = props =>{
       
       <div className={active ? styles.Active : styles.sidebarItemInner}>
         <div className={styles.sidebarItemInnerLeft} >
-          <img src={props.icon} width={24} />
+          <Image src={props.icon} width={20} height={20} className={styles.itemImg} />
         <span>
           {props.title}
         </span>
         </div>
         <div>
-            {props.dropIcon && <img src={props.dropIcon} alt="drop" width={24} />}
+            {props.dropIcon && <Image src={props.dropIcon} alt="drop" width={16} height={16} />}
         </div>
        
       
@@ -38,7 +39,8 @@ const SidebarContent = props =>{
       
       <div className={active ? styles.Active : styles.sidebarItemInner}>
         <div className={styles.sidebarItemInnerLeft}>
-           <img src={props.icon} width={24} />
+           <Image src={props.icon} width={20} height={20} className={styles.itemImg} />
+
         <span>
           {props.title}
         </span>
@@ -59,7 +61,8 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebarLogo}>
-        <img src="/logo.png" alt="companylogo" />
+        <Image src="/logo.png" width={165} height={35} />
+
       </div>
       {
         

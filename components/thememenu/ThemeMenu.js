@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/ThemeMenu.module.css'
+import Image from 'next/image'
 
 import { useDispatch } from 'react-redux'
 import ThemeAction from '../../redux/actions/ThemeAction'
@@ -78,14 +79,15 @@ const ThemeMenu = () => {
     <div>     
 
       <button className={styles.dropdownToggle} onClick={()=>setIsListOpen(!isListOpen)}>
-          <img src="/sidebarIcon/paint-palette.png" width={24} alt="palette" />
+          <Image src="/sidebarIcon/paint-palette.png" alt="fff" width={24} height={24} />
       </button>
         {
             isListOpen &&(
             <div className={styles.themeMenu}>
          <h4>Theme settings</h4>
           <button className={styles.themeMenuClose} onClick={()=>setIsListOpen(!isListOpen)} > 
-              <img src="/icon/close.png" />
+              <Image src="/icon/close.png" alt="fff" width={24} height={24} />
+
           </button>
 
 

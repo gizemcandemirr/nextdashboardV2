@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/TopNav.module.css";
 import Dropdown from "../dropdown/Dropdown";
+import Image from 'next/image'
 
 
 
@@ -28,7 +29,8 @@ const curr_language ={
 
 const renderNotificationItem = (item,index) =>(
   <div className={styles.notificationItem} key={index}>
-    <img src={item.icon} alt="notification item" width={24} />
+    <Image src={item.icon} alt="notification item" width={24} height={24} /> 
+
     <span>{item.content}</span>
 
   </div>
@@ -36,7 +38,8 @@ const renderNotificationItem = (item,index) =>(
 const renderUserMenu= (item,index) => (
    <Link href='/' key={index}>
    <div className={styles.notificationItem} key={index}>
-    <img src={item.icon} alt="notification item" width={24} />
+    <Image src={item.icon} alt="notification item" width={24} height={24} /> 
+
     <span>{item.content}</span>
 
   </div>
@@ -45,7 +48,8 @@ const renderUserMenu= (item,index) => (
 const renderLanguageMenu= (item,index) => (
   <Link href={item.href} key={index}>
   <div className={styles.notificationItem} key={index}>
-   <img src={item.icon} alt="item" width={24} />
+   <Image src={item.icon} alt="notification item" width={24} height={24} /> 
+
    <span>{item.content}</span>
  </div>
   </Link> 
@@ -54,7 +58,8 @@ const renderLanguageMenu= (item,index) => (
 const renderUserToggle = (user) =>(
   <div className={styles.topNavRightUser}>
     <div className={styles.topNavRightUserImage}>
-      <img src={user.image} alt="user" width={24} />
+      <Image src={user.image} alt="notification item" width={24} height={24} /> 
+
     </div>
     <div className={styles.topNavRightUserName}>
       {user.display_name}
@@ -65,7 +70,8 @@ const renderLanguageToggle = (language) =>(
  
   <div className={styles.topNavRightUser}>
     <div className={styles.topNavRightUserImage}>
-      <img src={language.image} alt="user" />
+      <Image src={language.image} alt="user" width={24} height={24} /> 
+
     </div>
     <div className={styles.topNavRightUserName}>
       {language.display_name}

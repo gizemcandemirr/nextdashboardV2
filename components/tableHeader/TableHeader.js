@@ -2,13 +2,15 @@ import  IconButton  from '../iconButton/IconButton.js'
 import React from 'react'
 import styles from '../../styles/TableHeader.module.css'
 import SearchBar from '../searchBar/SearchBar'
+import Image from 'next/image'
+
 const TableHeader = props => {
    const data = props.data
 
   return (
     <div className={styles.headerContent}>
       <div className={styles.backItems}>
-         <img src="/sidebarIcon/back.png" alt="back" />
+         <Image src="/sidebarIcon/back.png" alt="back" width={24} height={24} /> 
          <span>user roles</span>
       </div>
     <div className={styles.rightItems}>
