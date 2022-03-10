@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { RootState, useAppSelector } from "../redux/store";
-import loginSlice, {actions as loginActions} from "../redux/modules/loginSlice"
+import {actions as loginActions} from "../redux/modules/loginSlice"
 import { useEffect, useState } from "react";
 
 
@@ -27,16 +27,13 @@ const IndexPage: NextPage = (props:any) => {
         <title className="text-primary-dark">Shop Admin</title>
         <meta name="description" content="shop admin" />
       </Head>
-       
-       {
-         <div>
-         <input className="bg-teal-500" name="email" value={email} onChange={(e)=> setEmail(e.currentTarget.value)} />
-         <input name="password" value={password} onChange={(e)=> setPassword(e.currentTarget.value)} />
-         <button onClick={() => dispatch(fetch({email: email, password: password}))}> {login.result}</button>
-        </div>
-        
-         
-         }
+{/*        
+       { <div>
+         <input className="border border-gray-600" name="email" value={email} onChange={(e)=> setEmail(e.currentTarget.value)} />
+         <input className="border border-gray-600" name="password" value={password} onChange={(e)=> setPassword(e.currentTarget.value)} />
+         <button onClick={() => dispatch(fetch({email: email, password: password}))}> login</button>
+        </div>      
+         } */}
       
 
     </div>
