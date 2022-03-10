@@ -2,9 +2,7 @@ const theme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -18,7 +16,10 @@ module.exports = {
           800: "#262626",
           900: "#171818",
         },
-      }, 
-    }
-}
-}
+      },
+    },
+  },
+  variants: {
+    extend: { backgroundColor: ["active"] },
+  },
+};

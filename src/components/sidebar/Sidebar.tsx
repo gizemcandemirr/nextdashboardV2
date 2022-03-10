@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Sidebar = () => {
+  const [showOptions, setShowOptions] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setShowOptions(!showOptions);
+  };
+  const handleActive = () => {
+     setIsActive(!isActive)
+  }
+
   return (
     <div className="w-64 h-screen border border-gray-400 ">
       <div className="px-6 pt-8">
@@ -56,13 +66,14 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
-                Dashboard{" "}
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
+                Dashboard
               </a>
             </Link>
           </li>
-          <li className="text-gray-500 relative">
-            <div className="absolute inset-y-0 flex items-center">
+
+          <li className="text-gray-500 relative " onClick={handleActive}>
+            <div className="absolute inset-y-0 flex items-center ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -78,12 +89,14 @@ const Sidebar = () => {
                 />
               </svg>
             </div>
-            <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
-                Sales
+            <Link href="/sales" >
+              <a className="isActive ? inline-block text-sm w-full pl-8 pr-4 py-2 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
+               <span> Sales
+                 </span>  
               </a>
             </Link>
           </li>
+
           <li className="text-gray-500 relative">
             <div className="absolute inset-y-0 flex items-center">
               <svg
@@ -102,8 +115,8 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
-                Orders{" "}
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
+                Orders
               </a>
             </Link>
           </li>
@@ -125,7 +138,7 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
                 Products
               </a>
             </Link>
@@ -148,7 +161,7 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
                 Customers{" "}
               </a>
             </Link>
@@ -176,7 +189,7 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
                 Analytics
               </a>
             </Link>
@@ -199,7 +212,7 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
                 Discount
               </a>
             </Link>
@@ -223,12 +236,12 @@ const Sidebar = () => {
               </svg>
             </div>
             <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded active:bg-gray-500 active:text-white">
+              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
                 Inventory
               </a>
             </Link>
           </li>
-          <li className="">
+          <li className="" onClick={handleClick}>
             <div className="text-gray-500 relative flex justify-between active:bg-gray-500 active:text-white hover:bg-gray-400 rounded">
               <div className="flex items-center w-full">
                 <div className="absolute inset-y-0 flex items-center">
@@ -270,10 +283,12 @@ const Sidebar = () => {
                 </svg>
               </button>
             </div>
+          {showOptions && (
             <ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
-              <li><a className="inline-block w-full px-4 py-2 text-xs rounded" >Users</a></li>
-              <li><a className="inline-block w-full px-4 py-2 text-xs rounded">User Permissions</a></li>
+              <li><a className="inline-block w-full px-4 py-2 text-xs rounded focus:outline-none focus:bg-sky-300 focus:ring-2 " >Users</a></li>
+              <li><a className="inline-block w-full px-4 py-2 text-xs rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">User Permissions</a></li>
             </ul>
+          )}  
           </li>
         </ul>
       </div>
