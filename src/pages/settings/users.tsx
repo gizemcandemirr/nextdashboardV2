@@ -1,11 +1,11 @@
 import React from 'react'
-import DataGridTable from '../../components/dataGridTable/DataGridTable'
+import Table from '../../components/table/Table'
+
 
 const users = () => {
   return (
     <div>
-     <DataGridTable />
-
+     <Table />
     </div>
   )
 }
