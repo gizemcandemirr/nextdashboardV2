@@ -2,17 +2,17 @@ import React from "react";
 
 const userpermissions = () => {
   return (
-    <div className="h-screen flex  gap-4 pl-2 pr-2 bg-white">
+    <div className="h-screen flex  gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
       <a
         href="#"
-        className="w-full border-2 border-b-4 border-gray-200 rounded-xl hover:bg-gray-50"
+        className="w-full border-2 border-b-4 border-gray-200 rounded-xl dark:border-gray-700 "
       >
         <p className="bg-sky-500 w-fit px-4 py-1 text-sm font-bold text-white rounded-tl-lg rounded-br-xl">
          
           PERMISSIONS
         </p>
 
-        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200">
+        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200 dark:border-gray-700">
           <div>
             <img
               src="https://picsum.photos/seed/2/200/200"
@@ -41,7 +41,7 @@ const userpermissions = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200">
+        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200 dark:border-gray-700">
           <div className="col-span-5 md:col-span-5">
             <p className="text-sky-500 font-bold text-xs"> User(0,50) </p>
 
@@ -65,7 +65,7 @@ const userpermissions = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200">
+        <div className="grid grid-cols-6 p-5 gap-y-2 border-b-4 border-gray-200 dark:border-gray-700">
           <div className="col-span-5 md:col-span-5 mt-5">
             <p className="text-sky-500 font-bold text-xs">Role(0,50) </p>
 

@@ -1,14 +1,16 @@
 import React from "react";
 import Dropdown from "../dropdown/Dropdown";
+import {useTheme} from "next-themes"
+import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 
 // json dosyaları
 import notifications from "../../../JsonData/notification.json";
 import Link from "next/link";
-import Image from "next/image";
 
 const renderNotificationItem = (item,index) =>(
   <div key={index}>
-    <a className='block px-4 py-2 text-sm hover:bg-gray-100'> {item.content} </a>
+    <a className='block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2'> {item.content} </a>
   </div>
 )
 
@@ -28,9 +30,11 @@ strokeWidth={2}
 </svg>
 
 const Header = () => {
+  const {theme, setTheme} = useTheme();
+
   return (
     <header className="flex flex-col px-6 py-3 ">
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center  dark:bg-gray-700">
         {/* search */}
         <div className="relative w-80 ml-4">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -62,13 +66,18 @@ const Header = () => {
         contentData={notifications}
         renderItems={(item,index) =>renderNotificationItem(item,index) }
         renderFooter={()=> <Link href='/'>View All</Link>}  />
-
+          <button className="p-2"
+       onClick={() => setTheme(theme=== "dark" ? "light" : "dark")}> {theme=== "light" ? <ModeNightOutlinedIcon style={{"color": 'gray'}} /> : <WbSunnyOutlinedIcon />}</button>
          <Dropdown 
          header="Admin"
         contentData={notifications}
         renderItems={(item,index) =>renderNotificationItem(item,index) }
           />
+       
+      
+
         </div>
+
       </div>
     </header>
   );

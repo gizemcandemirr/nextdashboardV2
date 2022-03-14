@@ -1,6 +1,8 @@
 import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import users from '../../../JsonData/user_list.json'
+import {useTheme} from "next-themes"
+
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 50 },
@@ -18,6 +20,7 @@ const columns: GridColDef[] = [
   ];
   
 const DataGridTable = () => {
+  const {theme, setTheme} = useTheme();
   
     const actionColumn = [{filed:"action", headerName:"Action", width:'200', renderCell:()=>{
         return(

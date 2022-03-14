@@ -45,7 +45,7 @@ const Dropdown = (props) => {
        }
 
         {showOptions && (
-          <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white">
+          <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ">
             <div>
               {props.contentData && props.renderItems
                 ? props.contentData.map((item, index) =>

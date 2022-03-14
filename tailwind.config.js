@@ -2,6 +2,7 @@ const theme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
+  darkMode: "class",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -21,9 +22,38 @@ module.exports = {
           200:"#63629F"
         }
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: "#333",
+            a: {
+              color: "#e86ed0",
+              "&:hover": {
+                color: "#edb5f5",
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme("colors.gray.100"),
+
+            a: {
+              color: theme("colors.blue.400"),
+              "&:hover": {
+                color: theme("colors.blue.300"),
+              },
+            },
+          },
+        },
+      }),
     },
   },
+
   variants: {
-    extend: { backgroundColor: ["active"] },
+    extend: {
+      typography: ["dark"],
+    },
   },
+  plugins: [require("@tailwindcss/typography")],
 };

@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import Charts from "../components/charts/Charts";
+import Table from "../components/table/Table";
 
 
 const IndexPage: NextPage = (props:any) => {
@@ -16,7 +17,9 @@ const IndexPage: NextPage = (props:any) => {
       <div className="mt-5">
          <Charts />
       </div>
-      
+      <div className="mt-5 p-15">
+         <Table />
+      </div>
     </div>
   );
 };
