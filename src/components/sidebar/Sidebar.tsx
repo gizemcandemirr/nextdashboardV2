@@ -241,9 +241,12 @@ const Sidebar = () => {
               </a>
             </Link>
           </li>
-          <li className="" onClick={handleClick}>
+
+
+         
+             <li className="" onClick={handleClick}>
             <div className="text-gray-500 relative flex justify-between active:bg-gray-500 active:text-white hover:bg-gray-400 rounded">
-              <div className="flex items-center w-full">
+              <div className="flex items-center w-full ">
                 <div className="absolute inset-y-0 flex items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -260,11 +263,11 @@ const Sidebar = () => {
                     />
                   </svg>
                 </div>
-                <Link href="/">
-                  <a className="inline-block text-sm w-full pl-8 pr-4 py-2 ">
-                    Settings
-                  </a>
-                </Link>
+                      <div className="inline-block text-sm w-full pl-8 pr-4 py-2 ">
+                     Settings    
+                      </div>
+                   
+                
               </div>
               <button className="absolute right-0 p-1 flex items-center ">
                 <svg
@@ -284,12 +287,14 @@ const Sidebar = () => {
               </button>
             </div>
           {showOptions && (
-            <ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
-              <li><a className="inline-block w-full px-4 py-2 text-xs rounded focus:outline-none focus:bg-sky-300 focus:ring-2 " >Users</a></li>
-              <li><a className="inline-block w-full px-4 py-2 text-xs rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">User Permissions</a></li>
-            </ul>
-          )}  
+    
+           <ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
+           <li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300"> <Link href="/settings/users">Users</Link></li> 
+              <li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300"> <Link href="/settings/userpermissions">User Permissions </Link></li>
+            </ul> 
+          )}   
           </li>
+
         </ul>
       </div>
     </div>
