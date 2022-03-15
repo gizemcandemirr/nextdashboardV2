@@ -8,9 +8,9 @@ import {ThemeProvider} from 'next-themes'
 
 const App: FC<AppProps> = ({ Component, pageProps } : AppProps) =>
 <ThemeProvider attribute='class'>
-<Layout>
+
     <Component {...pageProps} />
-</Layout> 
+
 </ThemeProvider>
 
 

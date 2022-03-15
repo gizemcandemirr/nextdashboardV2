@@ -58,12 +58,11 @@ export const post = async (
   url: string,
   data: any
 ): Promise<AxiosResponse<any, any>> => {
-  console.log(data);
   try {
     const res = await client.axiosInstance.post(apiUrl + "/" + url, data);
-    console.log(res);
-    return res.data;
+    return res;
   } catch (error) {
     throw error;
   }
+
 };
