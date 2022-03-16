@@ -1,24 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { post, get, endpoints } from "../../api";
 import { call, put, SagaReturnType, takeLatest } from "redux-saga/effects";
-import jwt from 'jsonwebtoken'
+import jwt_decode from "jwt-decode"
 
 
 
 
 interface LoginState {
-	email: string | null;
-	password: string | null;
 	result: string;
 	error: any;
 	data: any;
+	permissions: string[],
+	roles: any,
 	isLoading: boolean;
 	isAuth:boolean;
 }
 const initialState: LoginState = {
-	email: null,
-	password: null,
 	result: "",
+	permissions:[],
+	roles: "",
 	error: null,
 	data: null,
 	isAuth:false,
@@ -41,10 +41,14 @@ const loginSlice = createSlice({
 			state.isLoading=false;
 			state.data = payload;
 			if(200){
-			const accessJwt=	payload.payload.jwtToken;
-			const refreshJWT= payload.payload.refreshToken;
+			const accessJwt =	payload.payload.jwtToken;
+			const refreshJWT = payload.payload.refreshToken;
+			const decoder:any = jwt_decode(accessJwt);
+			console.log("decoder", decoder)
 			  sessionStorage.setItem("accessJWT", accessJwt)
-				localStorage.setItem("crmSite", JSON.stringify({refreshJWT: refreshJWT}))	 
+				localStorage.setItem("crmSite", JSON.stringify({refreshJWT: refreshJWT}))
+				state.permissions = decoder.Permissions
+				console.log("permissions", state.permissions)
 		 }
 		}, 
 		fetchFail: (state, payload) => {
@@ -61,6 +65,7 @@ export function* fetchDataSaga(payload: any) {
 			post(endpoints.login.login, payload.payload)
 		);
 		yield put(loginSlice.actions.fetchSuccess(result));
+	
 	} catch (e) {
 		yield put(loginSlice.actions.fetchFail((<Error>e).message));
 	}

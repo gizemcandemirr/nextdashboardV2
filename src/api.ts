@@ -6,16 +6,14 @@ const login = {
   authenticate: "partners/authenticate",
   login: "partners/login",
 };
-
-const auth = {
+const user = {
   authenticate: "partners/authenticate",
-  login: "partners/login",
 };
-
 export const endpoints = {
   login,
-	auth
+	user
 };
+
 
 /*declare module 'axios' {
   interface AxiosResponse<T extends GenericResponse<T>> extends Promise<T> {}

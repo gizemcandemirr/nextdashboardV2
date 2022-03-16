@@ -1,21 +1,25 @@
 import type { NextPage } from "next";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { RootState, useAppSelector } from "../redux/store";
-import { actions as loginActions } from "../redux/modules/loginSlice";
+import { actions as loginActions, reducer as loginReducer } from "../redux/modules/loginSlice";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const IndexPage: NextPage = (props: any) => {
+  
+  // const [authTokens, setAuthTokens] =useState(sessionStorage.getItem('accessJWT') ? JSON.parse(sessionStorage.getItem('accessJWT') || '{}') : null)
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const router = useRouter();
-
-	const dispatch = useDispatch();
 	const { isLoading, isAuth, result } = useAppSelector(
 		(state: RootState) => state.login
 	);
+	const dispatch = useDispatch();
+
 	const { fetch } = loginActions;
+
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
@@ -31,9 +35,12 @@ const IndexPage: NextPage = (props: any) => {
 
 	useEffect(() => {
 		if (isAuth == true) {
+		
 			router.push("/dashboard");
 		}
 	});
+
+
 
 	return (
 		<div>

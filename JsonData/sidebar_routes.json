@@ -2,17 +2,20 @@
     {
         "display_name": "Home",
         "route": "/",
-        "icon": "/sidebarIcon/home.svg"
+        "icon": "/sidebarIcon/home.svg",
+				"permission": ""
     },
     {
         "display_name": "Orders",
         "route": "/customers",
-        "icon": "/sidebarIcon/orders.svg"
+        "icon": "/sidebarIcon/orders.svg",
+				"permission": "Order_Get"
     },
     {
         "display_name": "Products",
         "route": "/products",
-        "icon": "/sidebarIcon/products.svg"
+        "icon": "/sidebarIcon/products.svg",
+				"permission": "Order_Products"
     },
     {
         "display_name": "Customer",

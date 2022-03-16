@@ -1,10 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { RootState, useAppSelector } from "../../redux/store";
+
+
 
 const Sidebar = () => {
+
+	const { permissions } = useAppSelector(
+		(state: RootState) => state.login
+	);
+	const dispatch = useDispatch();
+
+
+  console.log(permissions.includes("User_Get"))
+
   const [showOptions, setShowOptions] = useState(false);
   const [isActive, setIsActive] = useState(false);
+
 
   const handleClick = () => {
     setShowOptions(!showOptions);
@@ -12,6 +26,8 @@ const Sidebar = () => {
   const handleActive = () => {
      setIsActive(!isActive)
   }
+ 
+
 
   return (
     <div className="w-64 h-screen border border-gray-400 ">
@@ -166,34 +182,37 @@ const Sidebar = () => {
               </a>
             </Link>
           </li>
-          <li className="text-gray-500 relative">
-            <div className="absolute inset-y-0 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
-                />
-              </svg>
-            </div>
-            <Link href="/">
-              <a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
-                Analytics
-              </a>
-            </Link>
-          </li>
+						<li className="text-gray-500 relative">
+							<div className="absolute inset-y-0 flex items-center">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									className="h-6 w-6"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									strokeWidth={2}
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+									/>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+									/>
+								</svg>
+							</div>
+							<Link href="/">
+								<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
+									Analytics
+								</a>
+							</Link>
+						</li>
+			
+
+
           <li className="text-gray-500 relative">
             <div className="absolute inset-y-0 flex items-center">
               <svg
@@ -241,10 +260,8 @@ const Sidebar = () => {
               </a>
             </Link>
           </li>
-
-
-         
-             <li className="" onClick={handleClick}>
+      
+          <li className="" onClick={handleClick}>
             <div className="text-gray-500 relative flex justify-between active:bg-gray-500 active:text-white hover:bg-gray-400 rounded">
               <div className="flex items-center w-full ">
                 <div className="absolute inset-y-0 flex items-center">

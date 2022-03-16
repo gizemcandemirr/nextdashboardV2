@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Dropdown from "../dropdown/Dropdown";
 import {useTheme} from "next-themes"
 
@@ -30,6 +30,10 @@ strokeWidth={2}
 
 const Header = () => {
   const {theme, setTheme} = useTheme();
+
+
+
+
 
   return (
     <header className="flex flex-col px-6 py-3 ">
