@@ -5,12 +5,15 @@ import jwt from 'jsonwebtoken'
 
 
 
+
 interface LoginState {
 	email: string | null;
 	password: string | null;
 	result: string;
 	error: any;
 	data: any;
+	isLoading: boolean;
+	isAuth:boolean;
 }
 const initialState: LoginState = {
 	email: null,
@@ -18,6 +21,8 @@ const initialState: LoginState = {
 	result: "",
 	error: null,
 	data: null,
+	isAuth:false,
+	isLoading:false,
 };
 
 
@@ -28,13 +33,23 @@ const loginSlice = createSlice({
 	reducers: {
 		fetch: (state, payload) => {
 			state.result = "loading";
+			state.isLoading=true;
 		},
 		fetchSuccess: (state, payload: any) => {
 			state.result = "yüklendi";
+			state.isAuth=true;
+			state.isLoading=false;
 			state.data = payload;
+			if(200){
+			const accessJwt=	payload.payload.jwtToken;
+			const refreshJWT= payload.payload.refreshToken;
+			  sessionStorage.setItem("accessJWT", accessJwt)
+				localStorage.setItem("crmSite", JSON.stringify({refreshJWT: refreshJWT}))	 
+		 }
 		}, 
 		fetchFail: (state, payload) => {
 			state.result = "hata";
+			state.isLoading=false;
 			state.error = payload;
 		},
 	},

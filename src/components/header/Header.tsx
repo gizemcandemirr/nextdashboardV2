@@ -1,8 +1,7 @@
 import React from "react";
 import Dropdown from "../dropdown/Dropdown";
 import {useTheme} from "next-themes"
-import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+
 
 // json dosyaları
 import notifications from "../../../JsonData/notification.json";
@@ -67,7 +66,7 @@ const Header = () => {
         renderItems={(item,index) =>renderNotificationItem(item,index) }
         renderFooter={()=> <Link href='/'>View All</Link>}  />
           <button className="p-2"
-       onClick={() => setTheme(theme=== "dark" ? "light" : "dark")}> {theme=== "light" ? <ModeNightOutlinedIcon style={{"color": 'gray'}} /> : <WbSunnyOutlinedIcon />}</button>
+       onClick={() => setTheme(theme=== "dark" ? "light" : "dark")}> {theme=== "light" ? "dark" : "light"}</button>
          <Dropdown 
          header="Admin"
         contentData={notifications}

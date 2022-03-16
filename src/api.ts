@@ -7,8 +7,14 @@ const login = {
   login: "partners/login",
 };
 
+const auth = {
+  authenticate: "partners/authenticate",
+  login: "partners/login",
+};
+
 export const endpoints = {
   login,
+	auth
 };
 
 /*declare module 'axios' {
