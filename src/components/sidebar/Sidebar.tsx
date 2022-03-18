@@ -1,12 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { RootState, useAppSelector } from "../../redux/store";
 
 const Sidebar = () => {
 	const { permissions } = useAppSelector((state: RootState) => state.login);
-	const dispatch = useDispatch();
 
 	console.log("permissions?" , permissions.includes("User_Get"));
 
@@ -141,7 +139,7 @@ const Sidebar = () => {
 								/>
 							</svg>
 						</div>
-						<Link href="/">
+						<Link href="/products">
 							<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
 								Products
 							</a>
@@ -289,16 +287,25 @@ const Sidebar = () => {
 						</div>
 						{showOptions && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
-								<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
-									{" "}
-									<Link href="/settings/users">Users</Link>
-								</li>
-								<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
-									{" "}
-									<Link href="/settings/userpermissions">
-										User Permissions{" "}
-									</Link>
-								</li>
+							<Link href="/settings/users">	
+							<div>
+							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
+							 <a>Users  </a>		
+								</li> 
+							</div>
+							</Link>
+
+                <Link href="/settings/userpermissions" >
+									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
+								
+									
+									 	<a> User Permissions </a>
+										
+								
+								</li>	
+								</Link>
+							
+							
 							</ul>
 						)}
 					</li>
