@@ -1,18 +1,16 @@
 import React from 'react'
+import Charts from '../components/charts/Charts'
 import Header from '../components/header/Header'
+import Layout from '../components/layout/Layout'
 import Sidebar from '../components/sidebar/Sidebar'
+import Table from '../components/table/Table'
 
 const dashboard = () => {
 	return (
-   <div className='h-screen flex'>
-		<div className='w-64'>
-			<Sidebar/>
-		 </div>
-		 <div className='flex-1 min-w-0'>
-				<Header /> 
-	     
-		 </div>
- </div>
+		 <Layout>
+      <Charts/>
+      <Table/>
+		 </Layout>
 	)
 }
 

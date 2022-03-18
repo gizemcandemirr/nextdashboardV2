@@ -1,10 +1,12 @@
 import React from "react";
+import Layout from "../../components/layout/Layout";
 import AddUserModal from "../../components/modal/AddUserModal";
 
 const userpermissions = () => {
 	const [showModal, setShowModal] = React.useState(false);
 
 	return (
+	<Layout>
 		<div className="h-screen flex  gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
 			<a
 				href="#"
@@ -81,6 +83,7 @@ const userpermissions = () => {
 
 			<AddUserModal showModal={showModal} setShowModal={setShowModal} />
 		</div>
+	</Layout>	
 	);
 };
 

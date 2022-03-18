@@ -5,7 +5,6 @@ import jwt_decode from "jwt-decode"
 
 
 
-
 interface LoginState {
 	result: string;
 	error: any;

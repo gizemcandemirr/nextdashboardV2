@@ -7,17 +7,15 @@ import createSagaMiddleware, {Task} from 'redux-saga';
 import { all } from "redux-saga/effects";
 import logger from 'redux-logger'
 import login, {saga as loginSaga} from "./modules/loginSlice";
-import user, {saga as userSaga} from "./modules/userSlice"
 
 
 export const rootReducer = combineReducers({
 	[login.loginSlice.name]: login.loginSlice.reducer,
-	[user.userSlice.name]: user.userSlice.reducer
 	//...
 })
 
 function* rootSaga() {
-  yield all([loginSaga(), userSaga()]) 
+  yield all([loginSaga()]) 
 }
 
 export interface SagaStore extends rawStore {
