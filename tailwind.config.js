@@ -3,7 +3,7 @@ const theme = require("tailwindcss/defaultTheme");
 module.exports = {
   mode: "jit",
   darkMode: "class",
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}",'./node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
     extend: {
       fontFamily: {
@@ -90,5 +90,7 @@ module.exports = {
       typography: ["dark"],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"),
+	require('tw-elements/dist/plugin')
+],
 };

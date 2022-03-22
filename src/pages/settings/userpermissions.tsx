@@ -1,21 +1,11 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
-import AddUserModal from "../../components/modal/AddUserModal";
-
-
 
 const userpermissions = () => {
-
-	const [showModal, setShowModal] = React.useState(false);
-  const handleModal = ()  =>{
-      
-	}
 	return (
 		<Layout>
 			<div className="h-screen flex gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
 				<div className="w-full border-b border-gray-200 rounded-xl dark:border-gray-700">
-
-
 					<div className="flex justify-between p-5 border-b-2 border-gray-200 dark:border-gray-700">
 						<div className="flex text-gray-500">
 							<svg
@@ -56,7 +46,6 @@ const userpermissions = () => {
 						</div>
 					</div>
 
-
 					<div className="grid grid-cols-6 p-5 gap-y-2 border-b-2 border-gray-200 dark:border-gray-700">
 						<div className="col-span-5 md:col-span-5">
 							<p className="text-sky-500 font-bold text-xs"> User(0,50) </p>
@@ -66,10 +55,7 @@ const userpermissions = () => {
 							</p>
 
 							<div className="flex text-purple-200 mt-5 items-center">
-								<button
-									onClick={() => setShowModal(true)}
-									className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center"
-								>
+								<button className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center">
 									<div className="flex items-center ">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +87,6 @@ const userpermissions = () => {
 						</div>
 					</div>
 
-
 					<div className="grid grid-cols-6 p-5 gap-y-2 border-b-2 border-gray-200 dark:border-gray-700">
 						<div className="col-span-5 md:col-span-5 mt-5">
 							<p className="text-sky-500 font-bold text-xs">Role(0,50) </p>
@@ -111,10 +96,7 @@ const userpermissions = () => {
 							</p>
 
 							<div className="flex text-purple-200 mt-5 items-center">
-								<button
-									onClick={handleModal}
-									className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center"
-								>
+								<button className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center">
 									<div className="flex items-center ">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -137,8 +119,6 @@ const userpermissions = () => {
 						</div>
 					</div>
 				</div>
-
-				<AddUserModal showModal={showModal} setShowModal={setShowModal} />
 			</div>
 		</Layout>
 	);

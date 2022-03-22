@@ -1,0 +1,53 @@
+[
+	{
+			"ID": "1",
+			"Name": "Gizem Candemir",
+			"Role": "Developer",
+			"Email": "gizem.candemir@secilstore.com",
+			"Phone": "5514445666",
+			"Personsince": "Jul,18,20222",
+			"Lastupdate": "Jul,19,20222",
+			"Status": "Active"
+	},
+	{
+		"ID": "2",
+		"Name": "Korhan Afşar",
+		"Role": "UI/UX",
+		"Email": "korhan.afsar@secilstore.com",
+		"Phone": "5514445663",
+		"Personsince": "Jul,15,20222",
+		"Lastupdate": "Jul,16,20222",
+		"Status": "Active"
+},
+{
+	"ID": "3",
+	"Name": "Anıl Dikmen",
+	"Role": "Business Analyst",
+	"Email": "anil.dikmen@secilstore.com",
+	"Phone": "5514435666",
+	"Person Since": "June,18,20222",
+	"Last Update": "Jul,19,20222",
+	"Status": "Not Active"
+},
+{
+	"ID": "4",
+	"Name": "Ayşe",
+	"Role": "Business",
+	"Email": "ayse@secilstore.com",
+	"Phone": "5514435666",
+	"Person Since": "June,18,20222",
+	"Last Update": "Jul,19,20222",
+	"Status": "Not Active"
+},
+{
+	"ID": "5",
+	"Name": "Ali",
+	"Role": "Business",
+	"Email": "ayse@secilstore.com",
+	"Phone": "5513435666",
+	"Person Since": "May,18,20222",
+	"Last Update": "Jul,19,20222",
+	"Status": "Active"
+}
+
+]
