@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "../../components/form/customForm";
 import Layout from "../../components/layout/Layout";
 
 const userpermissions = () => {
+	const [addUser, setAddUser] = useState(false)
+	const [addRole, setAddRole] = useState(false)
+	const [type,setType] =useState('')
+
+  const addNewUser = () => {
+    setAddUser(!addUser);
+		setType("add");
+	}
+	const addNewRole = () => {
+    setAddRole(!addRole);
+		setType("role");
+	}
+
 	return (
 		<Layout>
+
+	   {!addUser && !addRole ? 
 			<div className="h-screen flex gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
-				<div className="w-full border-b border-gray-200 rounded-xl dark:border-gray-700">
-					<div className="flex justify-between p-5 border-b-2 border-gray-200 dark:border-gray-700">
-						<div className="flex text-gray-500">
+				<div className="w-full  rounded-xl dark:border-gray-700">
+					<div className="flex justify-between rounded p-5 border-2 mb-5 border-gray-200 dark:border-gray-700 ">
+						<div className="flex text-gray-500 ">
+						<div className="pr-5">
+						<span className="text-gray-600 font-bold">Store Owner</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								className="h-24 w-24  pr-6"
@@ -22,11 +40,12 @@ const userpermissions = () => {
 									d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
+						</div>	
 
-							<div className="">
-								<p className="text-violet-400 font-bold text-xs">
-									{" "}
-									Gizem Candemir{" "}
+							<div className="mt-5 pl-5">
+								<p className="text-sky-500 font-bold text-xs">
+								
+									Gizem Candemir
 								</p>
 
 								<p className="text-gray-600 font-bold">
@@ -39,14 +58,14 @@ const userpermissions = () => {
 							</div>
 						</div>
 
-						<div className="flex col-start-2 ml-4 md:col-start-auto md:ml-0 md:justify-end">
-							<p className="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit">
+						<div className="flex  ml-4 items-center mb-5 md:col-start-auto md:ml-0 md:justify-end">
+							<p className="rounded-lg text-sky-500 font-bold border-2 border-gray-300 hover:bg-sky-100 py-1 px-3 text-sm w-fit h-fit">
 								Transfer ownership
 							</p>
 						</div>
 					</div>
 
-					<div className="grid grid-cols-6 p-5 gap-y-2 border-b-2 border-gray-200 dark:border-gray-700">
+					<div className="p-5 rounded border-2 mb-5 border-gray-300 dark:border-gray-700 ">
 						<div className="col-span-5 md:col-span-5">
 							<p className="text-sky-500 font-bold text-xs"> User(0,50) </p>
 
@@ -55,7 +74,9 @@ const userpermissions = () => {
 							</p>
 
 							<div className="flex text-purple-200 mt-5 items-center">
-								<button className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center">
+								<button className="flex items-center font-bold h-12 hover:bg-gray-200 w-32 pl-5"
+								 onClick={addNewUser}
+								>
 									<div className="flex items-center ">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -78,16 +99,16 @@ const userpermissions = () => {
 						</div>
 
 						<div className="flex col-start-2 md:col-start-auto md:ml-0 md:justify-end">
-							<p className="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 mr-1 text-sm h-fit">
+							<p className="rounded-lg text-sky-500  border-2 border-gray-300 hover:bg-sky-100 font-bold  py-1 px-3 mr-1 text-sm h-fit">
 								Dashboard
 							</p>
-							<p className="rounded-lg text-green-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit">
+							<p className="rounded-lg text-green-500 font-bold border-2 border-gray-300 hover:bg-sky-100  py-1 px-3 text-sm w-fit h-fit">
 								Invited List
 							</p>
 						</div>
 					</div>
 
-					<div className="grid grid-cols-6 p-5 gap-y-2 border-b-2 border-gray-200 dark:border-gray-700">
+					<div className="p-5 rounded border-2 border-gray-200 dark:border-gray-700">
 						<div className="col-span-5 md:col-span-5 mt-5">
 							<p className="text-sky-500 font-bold text-xs">Role(0,50) </p>
 
@@ -96,7 +117,8 @@ const userpermissions = () => {
 							</p>
 
 							<div className="flex text-purple-200 mt-5 items-center">
-								<button className="flex items-center font-bold hover:bg-violet-100 hover:w-32 h-12 rounded  hover:justify-center">
+								<button className="flex items-center font-bold h-12 hover:bg-gray-200 w-32 pl-5"
+								 onClick={addNewRole}>
 									<div className="flex items-center ">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +142,24 @@ const userpermissions = () => {
 					</div>
 				</div>
 			</div>
+	
+
+		:
+		 <div className="p-5 ">
+			  <button onClick={type === "add" ? ()=> setAddUser(!addUser) : ()=> setAddRole(!addRole) } className="flex">
+					
+					<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /> 
+	
+</svg> <span className="text-bold tex-md pl-5">{type === "add" ? "Add User" : "Add Role"}  </span> </button>
+				<Form type={type} /> 
+		 </div>
+	 }
+
 		</Layout>
+	
+
+	
 	);
 };
 

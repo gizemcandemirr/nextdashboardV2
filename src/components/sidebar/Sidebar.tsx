@@ -93,7 +93,7 @@ const Sidebar = () => {
 							</svg>
 						</div>
 						<Link href="/sales">
-							<a className="isActive ? inline-block text-sm w-full pl-8 pr-4 py-2 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
+							<a className="isActive ? inline-block text-sm w-full pl-8 pr-4 py-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-sky-300 focus:ring-2 ">
 								<span> Sales</span>
 							</a>
 						</Link>
@@ -164,7 +164,7 @@ const Sidebar = () => {
 						</div>
 						<Link href="/">
 							<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
-								Customers{" "}
+								Customers
 							</a>
 						</Link>
 					</li>
@@ -264,7 +264,7 @@ const Sidebar = () => {
 										/>
 									</svg>
 								</div>
-								<div className="inline-block text-sm w-full pl-8 pr-4 py-2 ">
+								<div className="inline-block text-sm w-full pl-8 pr-4 py-2 cursor-pointer ">
 									Settings
 								</div>
 							</div>
@@ -283,6 +283,7 @@ const Sidebar = () => {
 										d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
 									/>
 								</svg>
+								
 							</button>
 						</div>
 						{showOptions && (
@@ -290,7 +291,7 @@ const Sidebar = () => {
 							<Link href="/settings/users">	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
-							 <a>Users  </a>		
+							 <a className="cursor-pointer">Users  </a>		
 								</li> 
 							</div>
 							</Link>
@@ -299,7 +300,7 @@ const Sidebar = () => {
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-sky-300">
 								
 									
-									 	<a> User Permissions </a>
+									 	<a className="cursor-pointer"> User Permissions </a>
 										
 								
 								</li>	
