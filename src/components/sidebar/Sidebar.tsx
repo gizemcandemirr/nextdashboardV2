@@ -68,7 +68,7 @@ const Sidebar = () => {
 								/>
 							</svg>
 						</div>
-						<Link href="/">
+						<Link href="/dashboard">
 							<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-sky-300 focus:ring-2 ">
 								Dashboard
 							</a>
