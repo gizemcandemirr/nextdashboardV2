@@ -1,13 +1,17 @@
-import { useRouter } from "next/router";
 import React from "react";
+import { DotsVerticalIcon } from "@heroicons/react/solid";
+import Dropdown from "../dropdown/Dropdown";
 
 const Form = (props: any) => {
-	const route = useRouter();
+	
+	const DotsContent = ["Engelle/Engeli Kaldır", "Aktivayon Yenile"]
 
-	const handleCloseStore = () => {
-		alert("işlemi iptal ettğinizde sayfadaki değişiklikler kaybolucaktır.");
-		route.push("/settings/userpermissions");
-	};
+const renderDotsItem = (item,index) =>(
+  <div key={index}>
+    <a className='block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2'> {item} </a>
+  </div>
+)
+
 	return (
 		<div>
 			{props.type == "add" && (
@@ -337,7 +341,7 @@ const Form = (props: any) => {
 									className="rounded-lg text-sky-500 font-bold border-2 border-gray-300 hover:bg-sky-100 py-1 px-3 text-sm w-fit h-12"
 									type="button"
 								>
-									Transfer store ownership
+									Completed to Transfer
 								</button>
 							</div>
 						</form>
@@ -349,7 +353,7 @@ const Form = (props: any) => {
 				<div>
 					<div className="p-5">
 						<article>
-							<h3>Invitation E-Mails</h3>{" "}
+							<h3>Invitation E-Mails</h3>
 							<p>It includes Users we invite and don't log into the system</p>
 						</article>
 					</div>
@@ -370,6 +374,7 @@ const Form = (props: any) => {
 								</tr>
 							</thead>
 							<tbody>
+					
 								<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
 									<th
 										scope="row"
@@ -379,58 +384,31 @@ const Form = (props: any) => {
 									</th>
 									<td className="px-2 py-4">gizem.candemir@secilstore.com</td>
 									<td className="px-6 py-4 text-right">
-										<a
-											href="#"
-											className="font-medium text-red-600 dark:text-red-400 hover:underline"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												className="h-9 w-9"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
-												strokeWidth={2}
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
-												/>
-											</svg>
+										<a href="#" className="font-medium text-gray-600 dark:text-red-400 hover:underline"	>
+												<Dropdown
+												Img={<DotsVerticalIcon width={24} />}
+												contentData={DotsContent}
+												renderItems={(item,index) =>renderDotsItem(item,index)} />
 										</a>
 									</td>
 								</tr>
+
 								<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-									<th
-										scope="row"
-										className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-									>
+									<th scope="row"	className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
 										Jul,27.03.2022 14:00
 									</th>
 									<td className="px-2 py-4">korhan.afsar@secilstore.com</td>
 
 									<td className="px-6 py-4 text-right">
-									<a
-											href="#"
-											className="font-medium text-red-600 dark:text-red-400 hover:underline"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												className="h-9 w-9"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
-												strokeWidth={2}
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
-												/>
-											</svg>
+										<a href="#"	className="font-medium text-gray-600 dark:text-red-400 hover:underline"	>
+											<Dropdown
+												Img={<DotsVerticalIcon width={24} />}
+												contentData={DotsContent}
+												renderItems={(item,index) =>renderDotsItem(item,index) } />
 										</a>
 									</td>
 								</tr>
+								
 							</tbody>
 						</table>
 					</div>
