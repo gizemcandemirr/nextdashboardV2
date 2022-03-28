@@ -56,7 +56,7 @@ function users() {
 	const action = ["View", "Edit"]
   return (
      <Layout>
-			 <CustomTable columns={columns} data={data} action={action} type="users" />
+			 <CustomTable columns={columns} data={data} action={action}  />
 		 </Layout> 
   )
 }

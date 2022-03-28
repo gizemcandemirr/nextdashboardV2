@@ -33,7 +33,7 @@ const IndeterminateCheckbox = React.forwardRef(
 
 
 
-function CustomTable({ columns, data, action, type }) {
+function CustomTable({ columns, data, action }) {
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -77,7 +77,7 @@ function CustomTable({ columns, data, action, type }) {
 					// to the render a checkbox
 					Cell: ({ row }) => (
 					
-								<div className="flex items-center mt-2 w-1/6">
+								<div className="flex items-center mt-2 ">
 							<IndeterminateCheckbox {...row.getToggleRowSelectedProps()}/>
 							<Image src={ProfilePicture} width={65} height={65} className="rounded-full" />
 						</div>
@@ -90,7 +90,6 @@ function CustomTable({ columns, data, action, type }) {
 		)
 	
 	
-
 
 	return (
 		<>
