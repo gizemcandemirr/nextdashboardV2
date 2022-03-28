@@ -24,13 +24,14 @@ const columns = React.useMemo(
 		{
 			Header: 'Users',
 			columns: [
-				{
-					Header: 'ID',
-					accessor: 'id',
-				},
+			
 				{
 					Header: 'Name',
 					accessor: 'name',
+				},
+				{
+					Header: 'Email',
+					accessor: 'email',
 				},
 			
 			],

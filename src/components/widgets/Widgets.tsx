@@ -48,7 +48,7 @@ const Widgets = (props: any) => {
 			<div className="flex justify-between items-center p-4">
 				<span>
 				
-					<a className="cursor-pointer underline text-gray-800">
+					<a className="cursor-pointer underline text-gray-400 ">
 						See all users
 					</a>
 				</span>

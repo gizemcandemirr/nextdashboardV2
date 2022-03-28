@@ -52,11 +52,11 @@ function users() {
   )
 
   const data = React.useMemo(() => makeData, [])
+	
 	const action = ["View", "Edit"]
-
   return (
      <Layout>
-			 <CustomTable columns={columns} data={data} action={action} />
+			 <CustomTable columns={columns} data={data} action={action} type="users" />
 		 </Layout> 
   )
 }
