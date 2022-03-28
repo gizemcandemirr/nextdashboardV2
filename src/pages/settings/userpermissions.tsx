@@ -27,7 +27,7 @@ const userpermissions = () => {
 	return (
 		<Layout>
 			{!visible ? (
-				<div className="h-screen flex gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
+				<div className=" flex gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
 					<div className="w-full  rounded-xl dark:border-gray-700">
 						<div className="flex justify-between rounded p-5 border-2 mb-5 border-gray-200 dark:border-gray-700 ">
 							<div className="flex text-gray-500 ">
@@ -161,7 +161,7 @@ const userpermissions = () => {
 					</div>
 				</div>
 			) : (
-				<div className="p-4 mt-5 max-w-xxl bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+				<div className=" mt-5 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700">
 					<div className="flex justify-between">
 						<button onClick={() => setVisible(!visible)} className="flex">
 							<svg

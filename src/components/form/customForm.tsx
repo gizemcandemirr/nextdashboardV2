@@ -1,17 +1,44 @@
 import React from "react";
-import { DotsVerticalIcon } from "@heroicons/react/solid";
-import Dropdown from "../dropdown/Dropdown";
+import makeData from '../../../JsonData/customer-list.json'
+
+import CustomTable from "../customTable/CustomTable";
+
+
 
 const Form = (props: any) => {
 	
 	const DotsContent = ["Engelle/Engeli Kaldır", "Aktivayon Yenile"]
-
+	const resend= true;
+	// <span className={!resend? "bg-orange-300 text-orange-500 flex items-center w-20 h-6 justify-center font-bold tex-sm rounded-lg mr-3" : "w-20 mr-3"}>{!resend? "Resend" : null}</span>
+	//                      <button className="text-red-400"><BanIcon width={18} /> </button>
 const renderDotsItem = (item,index) =>(
   <div key={index}>
     <a className='block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2'> {item} </a>
   </div>
 )
 
+const data = React.useMemo(() => makeData, [])
+const action = ["View", "Edit"]
+const columns = React.useMemo(
+	() => [
+		{
+			Header: 'Users',
+			columns: [
+				{
+					Header: 'ID',
+					accessor: 'id',
+				},
+				{
+					Header: 'Name',
+					accessor: 'name',
+				},
+			
+			],
+		},
+	 
+	],
+	[]
+)
 	return (
 		<div>
 			{props.type == "add" && (
@@ -351,67 +378,14 @@ const renderDotsItem = (item,index) =>(
 
 			{props.type == "invited" && (
 				<div>
-					<div className="p-5">
+					<div className="pl-5">
 						<article>
 							<h3>Invitation E-Mails</h3>
 							<p>It includes Users we invite and don't log into the system</p>
 						</article>
 					</div>
-					<div className="relative overflow-x-auto mt-5  sm:rounded-lg">
-						<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-							<thead className="text-xs border-b-2 text-gray-800 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-								<tr>
-									<th scope="col" className="px-2 py-3">
-										Invitation Sent
-									</th>
-									<th scope="col" className="px-2 py-3">
-										E-Mails
-									</th>
+					<CustomTable columns={columns} data={data} action={action} />
 
-									<th scope="col" className="px-6 py-3">
-										<span className="sr-only">Edit</span>
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-					
-								<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-									<th
-										scope="row"
-										className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-									>
-										Jul,27.03.2022 14:00
-									</th>
-									<td className="px-2 py-4">gizem.candemir@secilstore.com</td>
-									<td className="px-6 py-4 text-right">
-										<a href="#" className="font-medium text-gray-600 dark:text-red-400 hover:underline"	>
-												<Dropdown
-												Img={<DotsVerticalIcon width={24} />}
-												contentData={DotsContent}
-												renderItems={(item,index) =>renderDotsItem(item,index)} />
-										</a>
-									</td>
-								</tr>
-
-								<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-									<th scope="row"	className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-										Jul,27.03.2022 14:00
-									</th>
-									<td className="px-2 py-4">korhan.afsar@secilstore.com</td>
-
-									<td className="px-6 py-4 text-right">
-										<a href="#"	className="font-medium text-gray-600 dark:text-red-400 hover:underline"	>
-											<Dropdown
-												Img={<DotsVerticalIcon width={24} />}
-												contentData={DotsContent}
-												renderItems={(item,index) =>renderDotsItem(item,index) } />
-										</a>
-									</td>
-								</tr>
-								
-							</tbody>
-						</table>
-					</div>
 				</div>
 			)}
 		</div>

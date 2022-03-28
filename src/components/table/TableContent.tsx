@@ -17,11 +17,7 @@ const TableContent = (props: any) => {
 				</thead>
 				{props.bodyData ? (
 					<tbody>
-						{bodyData
-							.filter((content: any) =>
-								content.Name.toLowerCase().includes(props.query)
-							)
-							.map((item, index) => (
+						{bodyData.map((item, index) => (
 								<tr key={index} className="border-b border-gray-200">
 									<td className="px-6 py-4">{item.ID}</td>
 									<td className="px-6 py-4">{item.Name}</td>
