@@ -1,18 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useTable, usePagination, useRowSelect } from "react-table";
 import Dropdown from "../dropdown/Dropdown";
 import { DotsVerticalIcon } from "@heroicons/react/solid";
 import ProfilePicture from "../../../public/profile.jpg";
 import Image from "next/image";
+import UserProfile from "../profile/UserProfile";
 
-const renderDotsItem = (item, index) => (
-	<div key={index}>
-		<a className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2">
-			{item}
-		</a>
-	</div>
-);
+
 const IndeterminateCheckbox = React.forwardRef(
 	({ indeterminate, ...rest }, ref) => {
 		const defaultRef = React.useRef();
@@ -24,16 +19,40 @@ const IndeterminateCheckbox = React.forwardRef(
 
 		return (
 			<>
-				<input type="checkbox" ref={resolvedRef} {...rest} className="mr-3 ml-3" />
+				<input
+					type="checkbox"
+					ref={resolvedRef}
+					{...rest}
+					className="mr-3 ml-3"
+				/>
 			</>
 		);
 	}
 );
 
-
-
-
 function CustomTable({ columns, data, action }) {
+
+	const [isVisible,setIsVisible]= useState(true);
+	const [type, setType] = useState("");
+	const handleOpen=(type:any) =>{
+		{type=="View" && setType("View") }
+		{type=="Edit" && setType("Edit") }
+		if(Object.keys(selectedRowIds).length == 1 ){
+			setIsVisible(!isVisible);	
+		}
+		else
+		alert("lütfen bir seçim yapınız.")
+	}
+	const renderDotsItem = (item, index) => (
+
+		<div key={index}>
+			<button className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2 cursor-pointer"
+			 onClick={() => handleOpen(item.type)}>	  
+				{item.type}
+			</button>
+		</div>
+
+);
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -55,45 +74,43 @@ function CustomTable({ columns, data, action }) {
 		{
 			columns,
 			data,
-			initialState: { pageIndex: 2 },
+			initialState: { pageIndex: 0 },
 		},
 		usePagination,
 		useRowSelect,
-		
-			(hooks) => {
+
+		(hooks) => {
 			hooks.visibleColumns.push((columns) => [
-				// Let's make a column for selection
 				{
 					id: "selection",
-					// The header can use the table's getToggleAllRowsSelectedProps method
-					// to render a checkbox
+					
 					Header: ({ getToggleAllRowsSelectedProps }) => (
 						<div className="flex items-center">
 							<IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-
 						</div>
 					),
-					// The cell can use the individual row's getToggleRowSelectedProps method
-					// to the render a checkbox
-					Cell: ({ row }) => (
 					
-								<div className="flex items-center mt-2 ">
-							<IndeterminateCheckbox {...row.getToggleRowSelectedProps()}/>
-							<Image src={ProfilePicture} width={65} height={65} className="rounded-full" />
+					Cell: ({ row }) => (
+						<div className="flex items-center mt-2 ">
+							<IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+							<Image
+								src={ProfilePicture}
+								width={65}
+								height={65}
+								className="rounded-full" />
 						</div>
-				
 					),
 				},
 				...columns,
 			]);
-		}	
-		)
-	
-	
+		}
+	);
 
 	return (
-		<>
+
 			<div className="p-8">
+         {isVisible === true ? 
+			<>
 				<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
 					<table
 						{...getTableProps()}
@@ -110,14 +127,19 @@ function CustomTable({ columns, data, action }) {
 								</tr>
 							))}
 						</thead>
-						<tbody {...getTableBodyProps()} >
+						<tbody {...getTableBodyProps()}>
 							{page.map((row, i) => {
 								prepareRow(row);
 								return (
 									<tr {...row.getRowProps()}>
 										{row.cells.map((cell) => {
 											return (
-												<td {...cell.getCellProps()} className="px-2 py-2 border-b ">{cell.render("Cell")}</td>
+												<td
+													{...cell.getCellProps()}
+													className="px-2 py-2 border-b "
+												>
+													{cell.render("Cell")}
+												</td>
 											);
 										})}
 										<td className="px-2 py-2 border-b ">
@@ -134,8 +156,11 @@ function CustomTable({ columns, data, action }) {
 							})}
 						</tbody>
 					</table>
+
 				</div>
-				<div className="flex justify-end p-5">
+
+
+					<div className="flex justify-end p-5">
 					<button
 						onClick={() => gotoPage(0)}
 						disabled={!canPreviousPage}
@@ -198,9 +223,41 @@ function CustomTable({ columns, data, action }) {
 							</option>
 						))}
 					</select>
-				</div>
+				</div> 
+			</>	: 
+				
+						<div className="p-15">
+			    
+						    {
+								Object.keys(selectedRowIds).length < 2 &&(
+
+									 selectedFlatRows.map(
+							d => (
+						   	<div>
+								 <button onClick={() => setIsVisible(!isVisible)}>geri</button>
+								<UserProfile name={d.original.name} role={d.original.role} email={d.original.email} type={type} /> 
+								</div>
+						)
+							) 
+								)
+							
+									
+							
+								}
+						
+						
+						
+		
+			     	</div>
+				
+				
+				}
+
+			
+			
+			
 			</div>
-		</>
+	
 	);
 }
 

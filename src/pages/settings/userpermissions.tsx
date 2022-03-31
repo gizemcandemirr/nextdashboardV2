@@ -59,11 +59,11 @@ const userpermissions = () => {
 									</p>
 
 									<p className="text-gray-400">
-										{" "}
-										Sat, Mar 12 . 7:00 - 8:30 AM{" "}
+									
+										Sat, Mar 12 . 7:00 - 8:30 AM
 									</p>
 
-									<p className="text-gray-400"> Beginner developer </p>
+									<p className="text-gray-400"> Developer </p>
 								</div>
 							</div>
 
