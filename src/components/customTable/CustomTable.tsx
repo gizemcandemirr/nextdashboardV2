@@ -1,31 +1,32 @@
-import React, { useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import { useTable, usePagination, useRowSelect } from "react-table";
 import Dropdown from "../dropdown/Dropdown";
 import { DotsVerticalIcon } from "@heroicons/react/solid";
+import { BackspaceIcon } from "@heroicons/react/solid";
 import ProfilePicture from "../../../public/profile.jpg";
 import Image from "next/image";
 import UserProfile from "../profile/UserProfile";
 
 
-const IndeterminateCheckbox = React.forwardRef(
+const IndeterminateCheckbox = forwardRef(
 	({ indeterminate, ...rest }, ref) => {
-		const defaultRef = React.useRef();
+		
+		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
-		React.useEffect(() => {
+		useEffect(() => {
 			resolvedRef.current.indeterminate = indeterminate;
 		}, [resolvedRef, indeterminate]);
 
 		return (
-			<>
 				<input
 					type="checkbox"
 					ref={resolvedRef}
 					{...rest}
 					className="mr-3 ml-3"
 				/>
-			</>
+		
 		);
 	}
 );
@@ -83,15 +84,15 @@ function CustomTable({ columns, data, action }) {
 			hooks.visibleColumns.push((columns) => [
 				{
 					id: "selection",
-					
 					Header: ({ getToggleAllRowsSelectedProps }) => (
-						<div className="flex items-center">
+						<div className="mb-2">
 							<IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+							Select All
 						</div>
 					),
 					
 					Cell: ({ row }) => (
-						<div className="flex items-center mt-2 ">
+						<div className="flex items-center  ">
 							<IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
 							<Image
 								src={ProfilePicture}
@@ -120,7 +121,12 @@ function CustomTable({ columns, data, action }) {
 							{headerGroups.map((headerGroup) => (
 								<tr {...headerGroup.getHeaderGroupProps()}>
 									{headerGroup.headers.map((column) => (
-										<th {...column.getHeaderProps()} className="px-2 py-2">
+										<th {...column.getHeaderProps([
+											{
+												className: column.className,
+												style: column.style,
+											}
+										])} >
 											{column.render("Header")}
 										</th>
 									))}
@@ -131,14 +137,14 @@ function CustomTable({ columns, data, action }) {
 							{page.map((row, i) => {
 								prepareRow(row);
 								return (
-									<tr {...row.getRowProps()}>
+									<tr {...row.getRowProps()} key={i}>
 										{row.cells.map((cell) => {
 											return (
-												<td
-													{...cell.getCellProps()}
-													className="px-2 py-2 border-b "
-												>
-													{cell.render("Cell")}
+												<td	{...cell.getCellProps()}
+													key={i}	>
+                       
+													{cell.render("Cell")}   
+
 												</td>
 											);
 										})}
@@ -232,21 +238,19 @@ function CustomTable({ columns, data, action }) {
 								Object.keys(selectedRowIds).length < 2 &&(
 
 									 selectedFlatRows.map(
-							d => (
-						   	<div>
-								 <button onClick={() => setIsVisible(!isVisible)}>geri</button>
-								<UserProfile name={d.original.name} role={d.original.role} email={d.original.email} type={type} /> 
-								</div>
+							(d: any) => (
+						   	<div key={selectedRowIds.key}>
+								
+								<button onClick={() => setIsVisible(!isVisible)}><div className="flex items-center"><BackspaceIcon width={32} height={32} className="pr-2" /> <span>Geri </span> </div></button>
+								 
+								<UserProfile name={d.original.name} role={d.original.role} email={d.original.email}  type={type} img={ProfilePicture} /> 
+							
+							</div>
 						)
 							) 
-								)
+								)	
 							
-									
-							
-								}
-						
-						
-						
+								}		
 		
 			     	</div>
 				
