@@ -95,7 +95,7 @@ const Sidebar = () => {
 						</div>
 						{showProducts && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/products">	
+							<Link href="/products/product">	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Ürünler </a>		
@@ -208,8 +208,7 @@ const Sidebar = () => {
 					</li>
 
 				
-         
-
+        
 
 					<li className="" onClick={handleClick}>
 						<div className="text-gray-500 relative flex justify-between active:bg-gray-500 active:text-white hover:bg-gray-400 rounded">
