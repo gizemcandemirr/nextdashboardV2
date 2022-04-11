@@ -2,6 +2,7 @@ import React from 'react'
 
 import makeData from '../../../JsonData/customer-list.json'
 import CustomTable from '../../components/customTable/CustomTable'
+import TableHeader from '../../components/customTable/TableHeader'
 import Layout from '../../components/layout/Layout'
 
 
@@ -58,9 +59,11 @@ function users() {
 	
 	const action = [{"id": 1, type:"View"}, {"id": 2, type:"Delete"}]
   return (
-     <Layout>
-
-				 <CustomTable columns={columns} data={data} action={action} /> 
+     <Layout title="Users">
+       	 <div className="px-5 py-5 ml-5 mr-5">
+					 <TableHeader title="Product List" />
+				 </div>
+			 <CustomTable columns={columns} data={data} action={action} /> 
 		
 	    
 		 </Layout> 

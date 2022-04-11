@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import Dropdown from "../dropdown/Dropdown";
 import {useTheme} from "next-themes"
-import { BellIcon } from '@heroicons/react/solid'
+import { SearchIcon, MoonIcon, BellIcon, ArrowDownIcon, SunIcon } from "@heroicons/react/outline";
 
 
 // json dosyaları
 import notifications from "../../../JsonData/notification.json";
 import Link from "next/link";
+import Image from "next/image";
 
 //img dosyaları
 
@@ -21,53 +22,48 @@ const Header = () => {
   const {theme, setTheme} = useTheme();
 
   return (
-    <header className="flex flex-col px-6 py-3 ">
+		<>
+		 <header className="flex flex-col px-6 py-3 ">
       <div className="flex justify-between items-center  dark:bg-gray-700">
-        {/* search */}
-        <div className="relative w-80 ml-4">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </span>
-          <input
-            placeholder="Search"
-            className="block w-full text-sm border border-gray-400 rounded-md py-1 pl-10 pr-4 placeholder-gray-400"
-          />
-        </div>
+      	{/* search bar */}
+			 <div className="flex items-center px-1 py-1 w-64 ">
+				   <input type="text" placeholder="Search..." className=" pl-2 h-12 rounded-lg w-full bg-gray-100 focus:outline-none dark:bg-gray-800" />
+					 <span className="w-16 h-12 bg-[#7a7fdc] text-white rounded-lg flex justify-center items-center shadow-md border-2 border-[#9ca0eb] font-bold cursor-pointer hover:bg-[#777abb] hover:border-0">	
+						 		<SearchIcon className="h-5 w-5" />
+						</span>
+					
+			 </div>
 
         {/* Right Button Group */}
-        <div className="flex items-center">             
-				<Dropdown 
-         Img={<BellIcon width={24}/>}
-        contentData={notifications}
-        renderItems={(item,index) =>renderNotificationItem(item,index) }
-        renderFooter={()=> <Link href='/'>View All</Link>}  />
-          <button className="p-2"
-       onClick={() => setTheme(theme=== "dark" ? "light" : "dark")}> {theme=== "light" ? "dark" : "light"}</button>
-         <Dropdown 
-         header="Admin"
-        contentData={notifications}
-        renderItems={(item,index) =>renderNotificationItem(item,index) }
-          />
-       
-      
+				<div className="flex space-x-6 m-2 items-center">	 
+				 <div>
+					 <Image src="/en.jpg" width={32} height={24} className="cursor-pointer" />
+				 </div>
+				 <div>
+				<button onClick={() => setTheme(theme=== "dark" ? "light" : "dark")}>{theme=== "light" ? <MoonIcon className="w-6 h-6 text-[#555b6d] cursor-pointer"/> : <SunIcon className="w-6 h-6 text-[#555b6d] cursor-pointer"/>}	  </button>
+				 </div>
+				 <div>
+				 <BellIcon className="w-6 h-6 text-[#555b6d] cursor-pointer"/>
 
-        </div>
+				 </div>
+				 <div className="flex items-center space-x-2 border border-violet-200 p-2 rounded-lg">
+					 <div className="border-4 border-violet-400 rounded-full">
+					 <Image src="/avatar.jpg" width={45} height={40} className="rounded-full cursor-pointer "  />
+
+					 </div>
+					 <button className="flex">Admin
+             <ArrowDownIcon className="w-6 h-6 text-[#555b6d]" />
+					 </button>
+				 </div>
+			 </div>
 
       </div>
     </header>
+
+		</>
+   
+
+
   );
 };
 
