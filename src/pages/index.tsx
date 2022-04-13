@@ -7,9 +7,9 @@ import { actions as loginActions, reducer as loginReducer } from "../redux/modul
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const IndexPage: NextPage = (props: any) => {
+
+function IndexPage(props: any) {
   
-  // const [authTokens, setAuthTokens] =useState(sessionStorage.getItem('accessJWT') ? JSON.parse(sessionStorage.getItem('accessJWT') || '{}') : null)
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const router = useRouter();
@@ -43,6 +43,7 @@ const IndexPage: NextPage = (props: any) => {
 
 
 	return (
+
 		<div>
 			{
 				<div className="h-screen flex bg-gray-bg1">

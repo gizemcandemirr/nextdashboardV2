@@ -13,46 +13,28 @@ const chartOptions = {
       },
       series: [
         {
-          name: "series-1",
+          name: "Orders",
           data: [30, 40, 45, 50, 49, 60, 70, 91]
+        },
+				{
+          name: "Amounts",
+          data: [50, 10, 5, 100, 42, 87, 91, 70]
         }
       ]
     };
 
-    const donutOptions= {
-        options: {},
-        series: [44, 55, 41, 17, 15],
-        labels: ['A', 'B', 'C', 'D', 'E']
-    }
-  
+    
 const Charts = () => {
   return (
-    <div className='w-full'> 
-        <div>
-  <Chart
-    options={chartOptions.options}
-    series={chartOptions.series}
-    type="bar"
-    height="100%"
-  />
-        </div>
-        <div className='flex mt-16 justify-center'>
-     <Chart
-    options={donutOptions.options}
-    series={donutOptions.series}
-    type="donut"
-    height="100%"
-  />
-  
+    <div className='w-full h-full'> 
+    
   <Chart
     options={chartOptions.options}
     series={chartOptions.series}
     type="line"
     height="100%"
   />
-        </div>
- 
- 
+
   
   </div>
   )

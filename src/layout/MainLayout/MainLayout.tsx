@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import React from 'react'
-import Header from '../header/Header'
-import RoadHeader from '../roadheader/RoadHeader'
-import Sidebar from '../sidebar/Sidebar'
+import Header from '../../components/header/Header'
+import RoadHeader from '../../components/roadheader/RoadHeader'
+import Sidebar from '../../components/sidebar/Sidebar'
 
-const Layout = ({title,children}) => {
+const MainLayout = ({title,children}) => {
 
   return (
 	<>
@@ -27,4 +27,4 @@ const Layout = ({title,children}) => {
   )
 }
 
-export default Layout
+export default MainLayout
