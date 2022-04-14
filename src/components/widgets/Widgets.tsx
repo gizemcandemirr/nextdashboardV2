@@ -2,7 +2,7 @@ import React from "react";
 
 const Widgets = (props: any) => {
 	return (
-		<div className="max-w-sm bg-white ml-4 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+		<div className=" bg-white ml-4 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 			<div className="flex justify-between px-4 pt-4 ">
 				<div className="text-gray-400 uppercase">{props.title}</div>
 				<div className="flex">
@@ -52,11 +52,11 @@ const Widgets = (props: any) => {
 						See all users
 					</a>
 				</span>
-				<span className="bg-red-300 rounded-lg w-8 h-8 flex justify-center items-center">
+				<span className="bg-slate-200 rounded-lg w-8 h-8 flex justify-center items-center">
 					{props.img == "UserImg" && (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 text-red-700"
+							className="h-6 w-6 text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -72,7 +72,7 @@ const Widgets = (props: any) => {
 					{props.img == "OrderImg" && (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 text-red-700"
+							className="h-6 w-6 text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -88,7 +88,7 @@ const Widgets = (props: any) => {
 					{props.img == "EarnImg" && (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 text-red-700"
+							className="h-6 w-6 text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -104,7 +104,7 @@ const Widgets = (props: any) => {
 					{props.img == "BalanceImg" && (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 text-red-700"
+							className="h-6 w-6 text-slate-700"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"

@@ -26,7 +26,7 @@ const chartOptions = {
     
 const Charts = () => {
   return (
-    <div className='w-full h-full'> 
+    <div className='w-full h-80'> 
     
   <Chart
     options={chartOptions.options}
