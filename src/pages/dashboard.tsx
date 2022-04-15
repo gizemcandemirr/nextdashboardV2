@@ -6,8 +6,77 @@ import MainLayout from "../layout/MainLayout/MainLayout";
 //icons
 import { CashIcon } from "@heroicons/react/outline";
 import CollapseTable from "../components/customTable/CollapseTable";
+import BasicTable from "../components/customTable/BasicTable";
 
-const Headers = ["Bestsellers", "Most Viewed Products", "New Customers", "Customers"]
+const Headers = [
+	"Bestsellers",
+	"Most Viewed Products",
+	"New Customers",
+	"Customers",
+];
+
+const Headers2 = [
+	{ title: "Customer", props: { className: "" } },
+	{ title: "Items", props: { className: "" } },
+	{ title: "Total", props: { className: "" } },
+];
+
+const BestSellers = [
+	{ title: "Product", props: { className: "" } },
+	{ title: "Price", props: { className: "" } },
+	{ title: "Quantity", props: { className: "" } },
+];
+
+const MostViewed = [
+	{ title: "Product", props: { className: "" } },
+	{ title: "Price", props: { className: "" } },
+	{ title: "Views", props: { className: "" } },
+];
+const Cust = [
+	{ title: "Customer", props: { className: "" } },
+	{ title: "Orders", props: { className: "" } },
+	{ title: "Avarage", props: { className: "" } },
+	{ title: "Total", props: { className: "" } },
+];
+
+
+let Dataaa = [
+	[
+		{
+			title: "Gizo",
+			props: { className: "" },
+		},
+		{
+			title: "1",
+			props: { className: "" },
+		},
+		{
+			title: "2",
+			props: { className: "" },
+		},
+	],
+	[
+		{
+			title: "ccc",
+			props: { className: "" },
+		},
+		{
+			title: "2",
+			props: { className: "" },
+		},
+		{
+			title: "16",
+			props: { className: "" },
+		},
+	],
+];
+
+Dataaa = Dataaa.map((dat) =>
+	dat.map((x) => {
+		x.title === "16" && (x.props.className = "text-red-600")
+		return x;
+	})
+);
 
 const dashboard = () => {
 	return (
@@ -36,228 +105,90 @@ const dashboard = () => {
 								img="OrderImg"
 							/>
 						</div>
+
+						{/* last order */}
+						<BasicTable
+							headers={Headers2}
+							title={"Last Orders"}
+							content={Dataaa}
+						></BasicTable>
 					</div>
 
 					{/* charts */}
 					<div className=" w-2/3 col-span-2 border border-slate-200 shadow-md p-4">
-           <div className="flex justify-end m-4">
-						 <button className="border border-slate-200 p-4 text-md font-bold text-slate-500 w-44 rounded hover:bg-slate-100 hover:border-none ">Last 24 Hours</button>
-						</div>  
+						<div className="flex justify-end m-4">
+							<button className="border border-slate-200 p-4 text-md font-bold text-slate-500 w-44 rounded hover:bg-slate-100 hover:border-none ">
+								Last 24 Hours
+							</button>
+						</div>
 						<Charts />
 						<div className="flex space-x-2 justify-center border mt-2">
-							 <div className="flex flex-col border-r p-4">
-								 <span className="text-md font-extrabold text-slate-600 p-4">Revenue</span>
-								 <span className="text-center text-sm flex items-center justify-center text-slate-400"> <CashIcon className="w-6 h-6"  /> 120tl</span>
-							 </div>
-							 <div className="flex flex-col border-r p-4">
-								 <span className="text-md font-extrabold text-slate-600 p-4">Tax</span>
-								 <span className="text-center text-sm flex items-center justify-center text-slate-400"> <CashIcon className="w-6 h-6"  /> 120tl</span>
-							 </div>
-							 <div className="flex flex-col border-r p-4">
-								 <span className="text-md font-extrabold text-slate-600 p-4">Shipping</span>
-								 <span className="text-center text-sm flex items-center justify-center text-slate-400"> <CashIcon className="w-6 h-6"  /> 120tl</span>
-							 </div>
-							 <div className="flex flex-col border-r p-4">
-								 <span className="text-md font-extrabold text-slate-600 p-4">Quantity</span>
-								 <span className="text-center text-sm flex items-center justify-center text-slate-400"> <CashIcon className="w-6 h-6"  /> 120tl</span>
-							 </div>
+							<div className="flex flex-col border-r p-4">
+								<span className="text-md font-extrabold text-slate-600 p-4">
+									Revenue
+								</span>
+								<span className="text-center text-sm flex items-center justify-center text-slate-400">
+									{" "}
+									<CashIcon className="w-6 h-6" /> 120tl
+								</span>
+							</div>
+							<div className="flex flex-col border-r p-4">
+								<span className="text-md font-extrabold text-slate-600 p-4">
+									Tax
+								</span>
+								<span className="text-center text-sm flex items-center justify-center text-slate-400">
+									{" "}
+									<CashIcon className="w-6 h-6" /> 120tl
+								</span>
+							</div>
+							<div className="flex flex-col border-r p-4">
+								<span className="text-md font-extrabold text-slate-600 p-4">
+									Shipping
+								</span>
+								<span className="text-center text-sm flex items-center justify-center text-slate-400">
+									{" "}
+									<CashIcon className="w-6 h-6" /> 120tl
+								</span>
+							</div>
+							<div className="flex flex-col border-r p-4">
+								<span className="text-md font-extrabold text-slate-600 p-4">
+									Quantity
+								</span>
+								<span className="text-center text-sm flex items-center justify-center text-slate-400">
+									{" "}
+									<CashIcon className="w-6 h-6" /> 120tl
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
 
 				{/* tables */}
 				<div className="flex p-4 space-x-4">
-					{/* last order */}
-					<div className="border-collapse border border-slate-300  w mt-5 w-2/5 bg-white rounded-lg sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-						<div className="relative overflow-x-auto mt-5  sm:rounded-lg">
-							<span className="ml-2 font-semibold mt-5 uppercase">
-								Last Orders
-							</span>
-							<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-								<thead className="text-xs border-b-2 text-gray-800 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-									<tr>
-										<th scope="col" className="px-2 py-3">
-											Name
-										</th>
-										<th scope="col" className="px-2 py-3">
-											{" "}
-											Sales
-										</th>
-										<th scope="col" className="px-2 py-3">
-											Number
-										</th>
-										<th scope="col" className="px-6 py-3">
-											<span className="sr-only">Detail</span>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-										<th
-											scope="row"
-											className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-										>
-											Gizem Candemir
-										</th>
-										<td className="px-2 py-4">5000$</td>
-										<td className="px-2 py-4">554 555 55 55</td>
-										<td className="px-6 py-4 text-right">
-											<a
-												href="#"
-												className="font-medium text-gray-600 dark:text-red-400 hover:underline"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-6 w-6"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-													strokeWidth={2}
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-													/>
-												</svg>
-											</a>
-										</td>
-									</tr>
-									<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-										<th
-											scope="row"
-											className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-										>
-											Caner
-										</th>
-										<td className="px-2 py-4">10$</td>
-										<td className="px-2 py-4">111 111 11 11</td>
-
-										<td className="px-6 py-4 text-right">
-											<a
-												href="#"
-												className="font-medium text-gray-600 dark:text-red-400 hover:underline"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-6 w-6"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-													strokeWidth={2}
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-													/>
-												</svg>
-											</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
 					{/* last search terms*/}
-					<div className="border-collapse border border-slate-300  mt-5 w-2/3 bg-white rounded-lg sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-						<div className="relative overflow-x-auto mt-5  sm:rounded-lg">
-							<span className="ml-2 font-semibold mt-5 uppercase">
-								Last Search Terms
-							</span>
-							<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-								<thead className="text-xs border-b-2 text-gray-800 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-									<tr>
-										<th scope="col" className="px-2 py-3">
-											Search Term
-										</th>
-										<th scope="col" className="px-2 py-3">
-											{" "}
-											Results
-										</th>
-										<th scope="col" className="px-2 py-3">
-											Users
-										</th>
-										<th scope="col" className="px-6 py-3">
-											<span className="sr-only">Detail</span>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-										<th
-											scope="row"
-											className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-										>
-											Gizem Candemir
-										</th>
-										<td className="px-2 py-4">5000$</td>
-										<td className="px-2 py-4">554 555 55 55</td>
-										<td className="px-6 py-4 text-right">
-											<a
-												href="#"
-												className="font-medium text-gray-600 dark:text-red-400 hover:underline"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-6 w-6"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-													strokeWidth={2}
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-													/>
-												</svg>
-											</a>
-										</td>
-									</tr>
-									<tr className="bg-white border-b-2 dark:bg-gray-800 dark:border-gray-700">
-										<th
-											scope="row"
-											className="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-										>
-											Caner
-										</th>
-										<td className="px-2 py-4">10$</td>
-										<td className="px-2 py-4">111 111 11 11</td>
+					<div className="w-1/2">
+							<BasicTable headers={Headers2} title={"Last Search Terms"} content={Dataaa}></BasicTable>
+					</div>
+				
 
-										<td className="px-6 py-4 text-right">
-											<a
-												href="#"
-												className="font-medium text-gray-600 dark:text-red-400 hover:underline"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													className="h-6 w-6"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-													strokeWidth={2}
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-													/>
-												</svg>
-											</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					{/* product table */}
+					<div className="flex-1 mt-8">
+						<CollapseTable title={Headers}>
+							<div>
+							<BasicTable headers={BestSellers} title={"Best Sellers"} content={Dataaa}></BasicTable>
+							</div>
+							<div>
+							<BasicTable headers={MostViewed} title={"Most Viewed Products"} content={Dataaa}></BasicTable>
+							</div>
+							<div>
+							<BasicTable headers={Cust} title={"New Customers"} content={Dataaa}></BasicTable>
+							</div>
+							<div>
+							<BasicTable headers={Cust} title={"Customers"} content={Dataaa}></BasicTable>
+							</div>
+						</CollapseTable>
 					</div>
 				</div>
-
-				{/* product table */}
-			<div>
-				<CollapseTable headers={Headers} />
-			</div>
 			</div>
 		</MainLayout>
 	);
