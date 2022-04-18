@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 
 import { useDispatch} from "react-redux";
 import { RootState, useAppSelector } from "../redux/store";
+
 import { actions as loginActions, reducer as loginReducer } from "../redux/modules/loginSlice";
 
 import { useEffect, useState } from "react";
@@ -13,9 +14,13 @@ function IndexPage(props: any) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const router = useRouter();
+
+
+
 	const { isLoading, isAuth, result } = useAppSelector(
 		(state: RootState) => state.login
 	);
+
 	const dispatch = useDispatch();
 
 	const { fetch } = loginActions;

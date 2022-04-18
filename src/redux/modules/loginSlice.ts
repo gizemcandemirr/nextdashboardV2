@@ -75,4 +75,5 @@ export function* saga() {
 }
 
 export default { loginSlice, saga };
+
 export const { actions, reducer } = loginSlice;
