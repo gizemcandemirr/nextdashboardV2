@@ -16,6 +16,7 @@ const Sidebar = () => {
 
 	const [showOptions, setShowOptions] = useState(false);
 	const [showProducts, setShowProducts] = useState(false);
+	const [showOrders, setShowOrders] = useState(false);
 	const [showAnalistic, setShowAnalistic] = useState(false);
 
 
@@ -26,6 +27,9 @@ const Sidebar = () => {
 	};
 	const handleProduct= () => {
     setShowProducts(!showProducts)
+	};
+	const handleOrders= () => {
+    setShowOrders(!showOrders)
 	};
 	const handleAnalistic= () => {
     setShowAnalistic(!showAnalistic)
@@ -63,18 +67,48 @@ const Sidebar = () => {
 						</Link>
 					</li>
 
-				
 
-					<li className="text-gray-500 relative">
-						<div className="absolute inset-y-0 flex items-center">
-						<ShoppingBagIcon width={24} height={24} />
+					<li className="text-gray-500 relative" onClick={handleOrders}>
+					<div className="text-gray-500 relative flex justify-between active:bg-gray-500 active:text-white hover:bg-gray-400 rounded">
+							<div className="flex items-center w-full ">
+								<div className="absolute inset-y-0 flex items-center">	
+				      	<ShoppingBagIcon width={24} height={24} />
 
+								</div>
+								<div className="inline-block text-sm w-full pl-8 pr-4 py-2 cursor-pointer ">
+									Orders
+								</div>
+							</div>
+							<button className="absolute right-0 flex items-center py-2 text-gray-400">
+								<ChevronDoubleDownIcon width={18} height={18} />
+							</button>
 						</div>
-						<Link href="/orders">
-							<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-violet-200 focus:ring-2 ">
-								Orders
-							</a>
-						</Link>
+						{showOrders && (
+							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
+							<Link href="/orders/order">	
+							<div>
+							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
+							 <a className="cursor-pointer">Siparişler </a>		
+								</li> 
+							</div>
+							</Link>
+
+                <Link href="/orders/drafts" >
+									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
+									
+									 	<a className="cursor-pointer"> Taslaklar </a>
+								</li>	
+								</Link>
+								<Link href="/orders/abondonedPayment" >
+									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
+									
+									 	<a className="cursor-pointer"> Terkedilmiş Öğeler </a>
+								</li>	
+								</Link>
+							
+							
+							</ul>
+						)}
 					</li>
 
 

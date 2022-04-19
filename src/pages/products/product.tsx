@@ -59,7 +59,6 @@ const products = () => {
 					 <TableHeader title="Product List" />
 				 </div>
 
-
 				 <CustomTable columns={columns} data={data} action={action} /> 
 			 </div>
 		   	 
