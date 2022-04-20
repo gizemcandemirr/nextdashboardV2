@@ -72,7 +72,6 @@ function OrderTable({ columns, data, action, img }) {
 		},
 		usePagination,
 		useRowSelect,
-
 		(hooks) => {
 			hooks.visibleColumns.push((columns) => [
 				{

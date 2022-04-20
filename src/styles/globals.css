@@ -8,7 +8,6 @@
   display: flex;
 }
 .tabs {
-
   padding: 15px;
   text-align: center;
   width: 50%;
@@ -66,4 +65,30 @@
 }
 .active-content {
   display: block;
+}
+
+@layer tableOrder{
+	.table{
+	@apply table-fixed text-base text-gray-900
+	}
+
+	.tableHead{
+		@apply p-2
+	}
+
+	.tableRow{
+		@apply border border-green-500
+	}
+	.tableHeader{
+		@apply border border-green-500 p-2
+	}
+	
+	.tableData{
+		@apply border border-green-500 p-5 
+	}
+	.tableButton{
+		@apply pl-4 pr-4 pt-2 pb-2 text-black rounded-md bg-green-300 hover:bg-green-200 transition-colors 
+	}
+
+
 }

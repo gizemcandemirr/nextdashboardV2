@@ -1,10 +1,13 @@
 import React from 'react'
+import  Product  from '../../components/customTable/Product'
 
 type Props = {}
 
 const drafts = (props: Props) => {
 	return (
-		<div>drafts</div>
+		<div>
+			<Product  />
+		</div>
 	)
 }
 

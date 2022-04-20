@@ -30,8 +30,7 @@ const BasicTable = (props: Props) => {
 									scope="col"	
 									{...(header.props ?? {})}
 									className={"p-4" + (header.props?.className && header.props?.className)}
-									key={index}
-								>
+									key={index}	>
 									{header.title}
 								</th>
 							))}
