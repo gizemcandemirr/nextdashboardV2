@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import { IOrder } from "./Types";
 
@@ -10,7 +10,22 @@ type Props = {
 export default function Table(props: Props) {
 	const data = props.data;
 
-	const columns = props.columns;
+	const columns = useMemo(
+		() => 
+		props.data[0] ?
+		Object.keys(props.data[0])
+		.map((key) => {
+			if(key=== "image")
+			return{
+				Header: key,
+				accessor:key,
+				Cell:({value}) => <img src={value} className="w-24 h-32" />,
+			}
+			return {Header:key, accessor:key};
+		})
+		: [],
+		[props.data]
+	)
 
   function tableHooks(hooks) {
 	hooks.visibleColumns.push((columns) => [
@@ -37,7 +52,7 @@ export default function Table(props: Props) {
 					{headerGroups.map((headerGroup, i) => (
 						<tr className="tableRow" {...headerGroup.getHeaderGroupProps()} key={i} >
 							{headerGroup.headers.map((column,i) =>(
-							<th className="tableHeader" {...column.getHeaderProps()} key={i}>{column.render("Header")}</th>
+							<th className="tableHeader uppercase" {...column.getHeaderProps()} key={i}>{column.render("Header")}</th>
 							))}
 						</tr>
 					))}
