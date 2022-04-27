@@ -1,71 +1,99 @@
-import React from "react";
-import makeData from '../../../JsonData/customer-list.json'
-import CustomTable from '../../components/customTable/CustomTable'
+import { DotsVerticalIcon } from "@heroicons/react/solid";
+import axios from "axios";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import DataTable from "react-data-table-component";
 import TableHeader from "../../components/customTable/TableHeader";
-import Layout from '../../components/layout/Layout'
-
-
+import Layout from "../../components/layout/Layout";
 
 const products = () => {
+	const [products, setProducts] = useState([]);
 
-	
-	   const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Stok Kodu',
-       column: 'stokKod',	
-			 accessor:"stokKod"		
-			}
-			,
-			{
-				Header: 'Name',
-				column:'name',
-				accessor:"name"
-		 },
-		 {
-			Header: 'Durum',
+	const getProducts = async () => {
+		try {
+			const response = await axios.get("https://172.16.46.18/products");
+			setProducts(response.data.products);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const columns = [
+		{
+			name: "Product Name",
+			selector: (row) => row.name,
+		},
+		{
+			name: "Product description",
+			selector: (row) => (
+				<div
+					className={
+						row.status === "active"
+							? "status active"
+							: row.status === "draft"
+							? "status draft"
+							: "status archived"
+					}
+				>
+				
+					<span> {row.status} </span>
+				</div>
+			),
+		},
+		{
+			name: "Stok",
+			selector: (row) => row.stok
+		},
+		{
+			name: "Tür",
+			selector: (row) => row.type
+		},
+		{
+			name: "Satıcı",
+			selector: (row) => row.sales
+		},
+		{
+			name: "Product Image",
+			selector: (row) => (
+				<img src={row.images[0].fileUrl} width={100} height={80} />
+			),
+		},
+		{
+			name: "edit",
+			selector: (row) => (
+				<Link as="/posts" href={`/products/${row.id}`} >
+				<a>
+						<DotsVerticalIcon className="h-6 w-6" />
+				</a>
+			</Link>
 			
-			column: 'durum',
-			accessor:"durum"
-		 },
-		 {
-			Header: 'Stok',
-			column: 'id',
-			accessor:"id"
-		 },
-		 {
-			Header: 'Tür',
-			column: 'tür',
-			accessor:"tür"
-		 },
-		 {
-			Header: 'Satıcı',
-			column: 'personSince',
-			accessor:"personSince"
-		 },
-		 
+			),
+		},
+	];
 
-    ],
-    []
-  )
+	useEffect(() => {
+		getProducts();
+	}, []);
 
-  const data = React.useMemo(() => makeData, [])
-	
-	const action = [{"id": 1, type:"View"}, {"id": 2, type:"Delete"}]
-  return (
-     <Layout title="ProductList">
-			 <div>
-				 <div className="px-5 py-5 ml-5 mr-5">
-					 <TableHeader title="Product List" />
-				 </div>
+	return (
+		<Layout title="ProductList">
+			<div>
+				<div className="px-5 py-5 ml-5 mr-5">
+					<TableHeader title="Product List" />
+				</div>
 
-				 <CustomTable columns={columns} data={data} action={action} /> 
-			 </div>
-		   	 
-	    
-		 </Layout> 
-  )
-		
+				<div className="p-5">
+					<DataTable
+						columns={columns}
+						data={products}
+						pagination
+						selectableRows
+						fixedHeader
+					/>
+				</div>
+			</div>
+		</Layout>
+	);
 };
 
 export default products;

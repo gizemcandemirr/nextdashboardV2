@@ -1,7 +1,6 @@
 import React from 'react'
 
 import makeData from '../../../JsonData/customer-list.json'
-import CustomTable from '../../components/customTable/CustomTable'
 import TableHeader from '../../components/customTable/TableHeader'
 import Layout from '../../components/layout/Layout'
 
@@ -63,7 +62,6 @@ function users() {
        	 <div className="px-5 py-5 ml-5 mr-5">
 					 <TableHeader title="Product List" />
 				 </div>
-			 <CustomTable columns={columns} data={data} action={action} /> 
 		
 	    
 		 </Layout> 

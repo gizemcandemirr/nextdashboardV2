@@ -16,3 +16,9 @@ export interface IOrder{
 	payMethod:string;
 	tags:string;
 }
+
+export interface IColumns{
+	  Header: string;
+	  column: string;
+  	accessor:string;
+}

@@ -4,7 +4,27 @@
 @tailwind utilities;
 
 
-.bloc-tabs {
+
+ 
+@layer Status{
+	 .status{
+   @apply w-20 h-6 flex justify-center items-center rounded-full 
+	}
+	.active{
+	@apply bg-green-300 text-green-800 
+	}
+
+	.draft{
+		@apply bg-orange-300 text-orange-800
+	}
+
+	.archived{
+		@apply bg-blue-300 text-blue-800
+	}
+}
+
+@layer BasicTable{
+	.bloc-tabs {
   display: flex;
 }
 .tabs {
@@ -67,28 +87,6 @@
   display: block;
 }
 
-@layer tableOrder{
-	.table{
-	@apply table-fixed text-base text-gray-900
-	}
-
-	.tableHead{
-		@apply p-2
-	}
-
-	.tableRow{
-		@apply border border-green-500
-	}
-	.tableHeader{
-		@apply border border-green-500 p-2
-	}
-	
-	.tableData{
-		@apply border border-green-500 p-5 
-	}
-	.tableButton{
-		@apply pl-4 pr-4 pt-2 pb-2 text-black rounded-md bg-green-300 hover:bg-green-200 transition-colors 
-	}
-
-
 }
+
+	

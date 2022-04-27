@@ -1,93 +1,93 @@
-import React from "react";
-import makeData from '../../../JsonData/customer-list.json'
-import OrderTable from "../../components/customTable/OrderTable";
-import TableHeader from "../../components/customTable/TableHeader";
-import Layout from '../../components/layout/Layout'
+import { DotsVerticalIcon } from '@heroicons/react/solid';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import DataTable from 'react-data-table-component';
+import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-const orders = () => {
+function orders() {
+	const [products, setProducts] =useState([]);
+
+
+	const getProducts = async () => {
+		try {
+			const response= await axios.get("https://172.16.46.18/products");
+				setProducts(response.data.products)		
+		} catch (error) {
+			console.log(error);	
+		}
+	}
+
 
 	
-	   const columns = React.useMemo(
-    () => [
-			{
-        Header: 'Ürün',
-       column: 'img',	
-			 accessor:"img"		
-			}
-			,
-      {
-        Header: 'Sipariş No',
-       column: 'stokKod',	
-			 accessor:"stokKod"		
-			}
-			,
-			{
-				Header: 'Sipariş Tarihi',
-				column:'name',
-				accessor:"name"
-		 },
-		 {
-			Header: 'Müşteri',			
-			column: 'durum',
-			accessor:"durum"
-		 },
-		 {
-			Header: 'Toplam Sipariş Tutarı',
-			column: 'lastUpdate',
-			accessor:"lastUpdate"
-		 },
-		 {
-			Header: 'Ödeme Durumu',
-			column: 'tür',
-			accessor:"tür"
-		 },
-		 {
-			Header: 'Sipariş Karşılama Durumu',
-			column: 'phone',
-			accessor:"phone"
-		 },
-		 {
-			Header: 'Öğeler',
-			column: 'id',
-			accessor:"id"
-		 },
-		 {
-			Header: 'Teslimat Yöntemi',
-			column: 'status',
-			accessor:"status"
-		 },
-		 {
-			Header: 'Etiketleme',
-			column: 'role',
-			accessor:"role"
-		 },
-		 
+	const columns =[
+		{
+			name:"Product Name",
+      selector: row => row.name,
+			conditionalCellStyles: [
+				{
+						when: row => row.name === "KEMERLİ KLOŞ ETEK",
+						style: {
+								color: 'red',
+						},
+				},
+	
+		],
+		},
+		{
+			name:"Product description",
+      selector: row => row.description,
+			conditionalCellStyles: [
+				{
+						when: row => row.description === "asdasd",
+						style: {
+								backgroundColor: 'rgba(63, 195, 128, 0.9)',
+								color: 'white',
+								'&:hover': {
+										cursor: 'pointer',
+								},
+						},
+				},
+	
+		],
+    },
+		{
+			name:"Price",
+      selector: row => row.price
+		},
+		{
+			name:"Tags",
+      selector: row => row.tags
+		},
+		{
+			name:"Product Image",
+      selector: row => <img src={row.images[0].fileUrl} width={100} height={80} />		
+		},
+		{
+			name:"edit",
+			selector: row => <button>
+			<DotsVerticalIcon className="h-6 w-6" />
+		</button>
+		}
+	
+	]
 
-    ],
-    []
-  )
+	
+	
+	useEffect(() => {
+		getProducts();
+	}, []);
 
-  const data = React.useMemo(() => makeData, [])
-	const img= data.map(d=> d.img)
-		console.log("data", img);
+	
+	return (
+	<MainLayout title="OrderList">
+		<div className='p-5'>
+					<DataTable columns={columns} data={products} pagination selectableRows fixedHeader />
 
-	const action = [{"id": 1, type:"View"}, {"id": 2, type:"Delete"}]
-  return (
-     <Layout title="OrderList">
-			 <div>
-				 <div className="px-5 py-5 ml-5 mr-5">
-					 <TableHeader title="Order List" />
-				 </div>
+		</div>
+	</MainLayout>	
+	)
+}
 
-				 <OrderTable columns={columns} data={data} action={action} img={img} /> 
-			 </div>
-		   	 
-	    
-		 </Layout> 
-  )
-		
-};
-
-export default orders;
+export default orders

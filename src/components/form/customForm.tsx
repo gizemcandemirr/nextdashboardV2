@@ -1,7 +1,6 @@
 import React from "react";
 import makeData from '../../../JsonData/customer-list.json'
 
-import CustomTable from "../customTable/CustomTable";
 
 
 
@@ -385,7 +384,7 @@ const columns = React.useMemo(
 							<p>It includes Users we invite and don't log into the system</p>
 						</article>
 					</div>
-					<CustomTable columns={columns} data={data} action={action} />
+			
 
 				</div>
 			)}
