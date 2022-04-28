@@ -79,7 +79,7 @@ const products = () => {
 		<Layout title="ProductList">
 			<div>
 				<div className="px-5 py-5 ml-5 mr-5">
-					<TableHeader title="Product List" />
+					<TableHeader title="Products" />
 				</div>
 
 				<div className="p-5">
