@@ -3,7 +3,7 @@ import React from "react";
 const Widgets = (props: any) => {
 	return (
 		<div className=" bg-white ml-4 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-			<div className="flex justify-between px-4 pt-4 ">
+			<div className="flex justify-between px-4 pt-4  space-x-6">
 				<div className="text-gray-400 uppercase">{props.title}</div>
 				<div className="flex">
 					{props.action == "decline" ? (
@@ -52,7 +52,9 @@ const Widgets = (props: any) => {
 						See all users
 					</a>
 				</span>
-				<span className="bg-slate-200 rounded-lg w-8 h-8 flex justify-center items-center">
+				{props.img && (
+
+<span className="bg-slate-200 rounded-lg w-8 h-8 flex justify-center items-center">
 					{props.img == "UserImg" && (
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +120,9 @@ const Widgets = (props: any) => {
 						</svg>
 					)}
 				</span>
+
+				)}
+				
 			</div>
 		</div>
 	);

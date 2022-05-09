@@ -55,7 +55,7 @@ const products = () => {
 		{
 			name: "Product Image",
 			selector: (row) => (
-				<img src={row.images[0].fileUrl} width={100} height={80} />
+				<img src={row.images[0]?.fileUrl} width={100} height={80} />
 			),
 		},
 		{

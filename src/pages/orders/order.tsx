@@ -2,6 +2,8 @@ import { DotsVerticalIcon } from '@heroicons/react/solid';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
+import CustomDropdown from '../../components/dropdown/CustomDropdown';
+import Widgets from '../../components/widgets/Widgets';
 import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
@@ -62,7 +64,7 @@ function orders() {
 		},
 		{
 			name:"Product Image",
-      selector: row => <img src={row.images[0].fileUrl} width={100} height={80} />		
+      selector: row => <img src={row.images[0]?.fileUrl} width={100} height={80} />		
 		},
 		{
 			name:"edit",
@@ -72,17 +74,54 @@ function orders() {
 		}
 	
 	]
-
-	
 	
 	useEffect(() => {
 		getProducts();
 	}, []);
-
 	
 	return (
 	<MainLayout title="OrderList">
 		<div className='p-5'>
+			<div className='flex'>
+				      <CustomDropdown />
+							<Widgets
+								title="Siparişler"
+								action="decline"
+								rate="20"
+								content="$100000"
+								
+							/>
+								<Widgets
+								title="Sipariş Edilen Ürünler"
+								action="decline"
+								rate="20"
+								content="$100000"
+							
+							/>
+								<Widgets
+								title="İade Edilen Ürünler"
+								action="decline"
+								rate="20"
+								content="$100000"
+							
+							/>
+								<Widgets
+								title="Yerine Getirelen Siparişler"
+								action="decline"
+								rate="20"
+								content="$100000"
+								
+							/>
+								<Widgets
+								title="Yerine Getirme Zamanı"
+								action="decline"
+								rate="20"
+								content="$100000"
+								
+							/>
+						
+			</div>
+	
 					<DataTable columns={columns} data={products} pagination selectableRows fixedHeader />
 
 		</div>

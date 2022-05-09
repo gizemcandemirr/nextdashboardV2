@@ -4,6 +4,7 @@ import { wrapper } from '../redux/store';
 import '../styles/globals.css';
 import {ThemeProvider} from 'next-themes'
 
+
 const App: FC<AppProps> = ({ Component, pageProps } : AppProps) =>
 <ThemeProvider attribute='class'>
   

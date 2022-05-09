@@ -90,7 +90,6 @@ module.exports = {
       typography: ["dark"],
     },
   },
-  plugins: [require("@tailwindcss/typography"),
-	require('tw-elements/dist/plugin')
+  plugins: [require("@tailwindcss/typography")
 ],
 };
