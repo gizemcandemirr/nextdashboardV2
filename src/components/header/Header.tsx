@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Dropdown from "../dropdown/Dropdown";
 import {useTheme} from "next-themes"
 import { SearchIcon, MoonIcon, BellIcon, ArrowDownIcon, SunIcon } from "@heroicons/react/outline";
 
@@ -11,7 +10,7 @@ import Image from "next/image";
 
 //img dosyaları
 
-const renderNotificationItem = (item,index) =>(
+const renderNotificationItem = (item:any,index:any) =>(
   <div key={index}>
     <a className='block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2'> {item.content} </a>
   </div>

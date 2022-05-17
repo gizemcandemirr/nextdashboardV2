@@ -7,7 +7,7 @@ import TableHeader from "../../components/customTable/TableHeader";
 import Layout from "../../components/layout/Layout";
 
 const products = () => {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState([""]);
 
 	const getProducts = async () => {
 		try {
@@ -21,11 +21,11 @@ const products = () => {
 	const columns = [
 		{
 			name: "Product Name",
-			selector: (row) => row.name,
+			selector: (row:any)  => row.name,
 		},
 		{
 			name: "Product description",
-			selector: (row) => (
+			selector: (row:any) => (
 				<div
 					className={
 						row.status === "active"
@@ -42,25 +42,25 @@ const products = () => {
 		},
 		{
 			name: "Stok",
-			selector: (row) => row.stok
+			selector: (row:any)  => row.stok
 		},
 		{
 			name: "Tür",
-			selector: (row) => row.type
+			selector: (row:any)  => row.type
 		},
 		{
 			name: "Satıcı",
-			selector: (row) => row.sales
+			selector: (row:any)  => row.sales
 		},
 		{
 			name: "Product Image",
-			selector: (row) => (
+			selector: (row:any)  => (
 				<img src={row.images[0]?.fileUrl} width={100} height={80} />
 			),
 		},
 		{
 			name: "edit",
-			selector: (row) => (
+			selector: (row:any)  => (
 				<Link as="/posts" href={`/products/${row.id}`} >
 				<a>
 						<DotsVerticalIcon className="h-6 w-6" />

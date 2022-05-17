@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function CollapseTable({ title, children }) {
+function CollapseTable({ title, children }:any) {
 	const [toggleState, setToggleState] = useState(0);
 
 	const toggleTab = (index: number) => {
@@ -11,7 +11,7 @@ function CollapseTable({ title, children }) {
 	return (
 		<div className="container">
 			<div className="bloc-tabs">
-				{title.map((title, index) => (
+				{title.map((title:any, index:any) => (
 					<button
 						key={index}
 						className={toggleState === index ? "tabs active-tabs" : "tabs"}

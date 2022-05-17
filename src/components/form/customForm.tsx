@@ -10,7 +10,7 @@ const Form = (props: any) => {
 	const resend= true;
 	// <span className={!resend? "bg-orange-300 text-orange-500 flex items-center w-20 h-6 justify-center font-bold tex-sm rounded-lg mr-3" : "w-20 mr-3"}>{!resend? "Resend" : null}</span>
 	//                      <button className="text-red-400"><BanIcon width={18} /> </button>
-const renderDotsItem = (item,index) =>(
+const renderDotsItem = (item:any,index:any) =>(
   <div key={index}>
     <a className='block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 border-b-2'> {item} </a>
   </div>

@@ -4,7 +4,7 @@ import Header from '../header/Header'
 import RoadHeader from '../roadheader/RoadHeader'
 import Sidebar from '../sidebar/Sidebar'
 
-const Layout = ({title,children}) => {
+const Layout = ({title,children}:any) => {
 
   return (
 	<>

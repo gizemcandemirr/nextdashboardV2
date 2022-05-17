@@ -8,19 +8,16 @@ import { all } from "redux-saga/effects";
 import logger from 'redux-logger'
 import login, {saga as loginSaga} from "./modules/loginSlice";
 import products from "./modules/productSlice";
-import { productSagas } from './productSagas';
 
 
 export const rootReducer = combineReducers({
 	[login.loginSlice.name]: login.loginSlice.reducer,
-	[products.productSlice. name]: products.productSlice.reducer,
 
 	//...
 })
 
 function* rootSaga() {
   yield all([loginSaga()]) 
-	yield all(productSagas)
 }
 
 export interface SagaStore extends rawStore {

@@ -4,7 +4,7 @@ import Header from '../../components/header/Header'
 import RoadHeader from '../../components/roadheader/RoadHeader'
 import Sidebar from '../../components/sidebar/Sidebar'
 
-const MainLayout = ({title,children}) => {
+const MainLayout = ({title,children}:any) => {
 
   return (
 	<>

@@ -9,7 +9,7 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 function orders() {
-	const [products, setProducts] =useState([]);
+	const [products, setProducts] =useState([""]);
 
 
 	const getProducts = async () => {
@@ -26,10 +26,10 @@ function orders() {
 	const columns =[
 		{
 			name:"Product Name",
-      selector: row => row.name,
+      selector: (row:any)  => row.name,
 			conditionalCellStyles: [
 				{
-						when: row => row.name === "KEMERLİ KLOŞ ETEK",
+						when: (row:any)  => row.name === "KEMERLİ KLOŞ ETEK",
 						style: {
 								color: 'red',
 						},
@@ -39,10 +39,10 @@ function orders() {
 		},
 		{
 			name:"Product description",
-      selector: row => row.description,
+      selector: (row:any)  => row.description,
 			conditionalCellStyles: [
 				{
-						when: row => row.description === "asdasd",
+						when: (row:any)  => row.description === "asdasd",
 						style: {
 								backgroundColor: 'rgba(63, 195, 128, 0.9)',
 								color: 'white',
@@ -56,19 +56,19 @@ function orders() {
     },
 		{
 			name:"Price",
-      selector: row => row.price
+      selector: (row:any)  => row.price
 		},
 		{
 			name:"Tags",
-      selector: row => row.tags
+      selector: (row:any)  => row.tags
 		},
 		{
 			name:"Product Image",
-      selector: row => <img src={row.images[0]?.fileUrl} width={100} height={80} />		
+      selector: (row:any)  => <img src={row.images[0]?.fileUrl} width={100} height={80} />		
 		},
 		{
 			name:"edit",
-			selector: row => <button>
+			selector: (row:any)  => <button>
 			<DotsVerticalIcon className="h-6 w-6" />
 		</button>
 		}
