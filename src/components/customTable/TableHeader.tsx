@@ -6,6 +6,8 @@ import {
 	FilterIcon,
 	SearchIcon,
 	XCircleIcon,
+	ChevronRightIcon,
+	XIcon
 } from "@heroicons/react/solid";
 
 type Props = {
@@ -13,7 +15,7 @@ type Props = {
 };
 
 const TableHeader = (props: Props) => {
-	let [isOpen, setIsOpen] = useState(true)
+	let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
     setIsOpen(false)
@@ -151,6 +153,8 @@ const TableHeader = (props: Props) => {
 					
 				</div>
 			</div>
+
+
         {/* modal content */}
 				<Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -177,29 +181,100 @@ const TableHeader = (props: Props) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
+                <Dialog.Panel className="w-full max-w-xs transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <div className="flex justify-between text-gray-700">
+									<Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    Filtreleme
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>
+									<button><XIcon width={24} height={24} /></button>
 
-                  <div className="mt-4">
-                    <button
+									</div>  
+
+									<div className="mt-4">
+										 <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-between items-center rounded-md w-full border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      Ürün Satıcısı
+                       <ChevronRightIcon width={24} height={24} className="ml-2"/>
+                    </button>	
+									</div>
+									
+                  <div className="mt-4">
+                   <button
+                      type="button"
+                      className="inline-flex justify-between items-center rounded-md w-full border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      - İle Etiketlendi
+											<ChevronRightIcon width={24} height={24} className="ml-2"/>
+
                     </button>
                   </div>
+
+									<div className="mt-4">
+                   <button
+                      type="button"
+                      className="inline-flex justify-between items-center rounded-md w-full border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Durum
+											<ChevronRightIcon width={24} height={24} className="ml-2"/>
+
+                    </button>
+                  </div>
+									<div className="mt-4">
+                   <button
+                      type="button"
+                      className="inline-flex items-center justify-between rounded-md w-full border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                       onClick={closeModal}
+                    >
+                      Ürün Türü
+											<ChevronRightIcon width={24} height={24} className="ml-2"/>
+
+                    </button>
+                  </div>
+									<div className="mt-4">
+                   <button
+                      type="button"
+                      className="inline-flex items-center justify-between rounded-md w-full border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Koleksiyon
+											<ChevronRightIcon width={24} height={24} className="ml-2"/>
+
+                    </button>
+                  </div>
+									<div className="mt-4">
+                   <button
+                      type="button"
+                      className="inline-flex items-center justify-between rounded-md border w-full border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Hediye Kart
+											<ChevronRightIcon width={24} height={24} className="ml-2"/>
+
+                    </button>
+                  </div>
+
+									<div className="mt-4 flex justify-center">
+                   <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-blue-900 hover:text-blue-700 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      temizle
+                    </button>
+                  </div>
+
+
+
+
+
                 </Dialog.Panel>
               </Transition.Child>
             </div>

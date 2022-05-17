@@ -45,7 +45,7 @@ const Sidebar = () => {
 				<div className="flex items-center justify-between">
 					<Link href="/about">
 						<a className=" rounded flex items-center justify-center mb-2">
-							<Image src="/logo.png" width={150} height={30} />
+							<Image src="/logo.png" width={100} height={100} />
 						</a>
 					</Link>
 				</div>

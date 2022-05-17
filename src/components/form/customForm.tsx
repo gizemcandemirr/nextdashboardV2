@@ -58,7 +58,7 @@ const columns = React.useMemo(
 										className="appearance-none block w-full rounded-lg text-gray-700 border border-gray-400  py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-last-name"
 										type="text"
-										placeholder="example@secilstore.com"
+										placeholder="example"
 									/>
 								</div>
 							</div>
@@ -71,7 +71,7 @@ const columns = React.useMemo(
 										className="appearance-none block w-full text-gray-700 border border-gray-400 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-last-name"
 										type="text"
-										placeholder="example@secilstore.com"
+										placeholder="example"
 									/>
 								</div>
 							</div>
@@ -105,7 +105,7 @@ const columns = React.useMemo(
 										className="appearance-none block w-full rounded-lg text-gray-700 border border-gray-400  py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-last-name"
 										type="text"
-										placeholder="example@secilstore.com"
+										placeholder="example"
 									/>
 								</div>
 							</div>
@@ -118,7 +118,7 @@ const columns = React.useMemo(
 										className="appearance-none block w-full text-gray-700 border border-gray-400 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-last-name"
 										type="text"
-										placeholder="example@secilstore.com"
+										placeholder="example"
 									/>
 								</div>
 							</div>
@@ -358,7 +358,7 @@ const columns = React.useMemo(
 										className="appearance-none block w-full text-gray-700 border border-gray-400 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-last-name"
 										type="text"
-										placeholder="example@secilstore.com"
+										placeholder="example"
 									/>
 								</div>
 							</div>

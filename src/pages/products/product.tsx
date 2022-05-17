@@ -11,7 +11,7 @@ const products = () => {
 
 	const getProducts = async () => {
 		try {
-			const response = await axios.get("https://172.16.46.18/products");
+			const response = await axios.get("https://172.16.70.11/products");
 			setProducts(response.data.products);
 		} catch (error) {
 			console.log(error);
