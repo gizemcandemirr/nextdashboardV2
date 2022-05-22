@@ -45,7 +45,7 @@ const Sidebar = () => {
 				<div className="flex items-center justify-between">
 					<Link href="/about">
 						<a className=" rounded flex items-center justify-center mb-2">
-							<Image src="/logo.png" width={100} height={100} />
+							<Image src="/logo.png" width={100} height={100} alt=""/>
 						</a>
 					</Link>
 				</div>
@@ -85,7 +85,7 @@ const Sidebar = () => {
 						</div>
 						{showOrders && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/orders/order">	
+							<Link href="/orders/Order" passHref>	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Siparişler </a>		
@@ -93,13 +93,13 @@ const Sidebar = () => {
 							</div>
 							</Link>
 
-                <Link href="/orders/drafts" >
+                <Link href="/orders/Drafts" passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Taslaklar </a>
 								</li>	
 								</Link>
-								<Link href="/orders/abondonedPayment" >
+								<Link href="/orders/AbondonedPayment" passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Terkedilmiş Öğeler </a>
