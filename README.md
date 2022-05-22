@@ -1,6 +1,11 @@
 ## 💪 I used data table component, this is really awesome for nextjs! Useful, basic and has much more custom elements. How to can I use ? And keeping link i show for you at my youtube channel, enjoy jacking!
   https://www.youtube.com/watch?v=lZDnUubIUOg&t=2s
 
+## View
+![](https://github.com/mhndsbgyn/nextdashboardv2/blob/main/public/dashboard.gif)
+
+
+
 # Completed
 
 1. Sidebar, Header vs. component designs
