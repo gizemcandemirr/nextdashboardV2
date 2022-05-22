@@ -1,3 +1,6 @@
+## I used data table componenet, this is really awesome for nextjs! Useful, basic and has much more custom elements. How to can I use ? And keeping link i show for you at my youtube channel, enjoy jacking!
+  https://www.youtube.com/watch?v=lZDnUubIUOg&t=2s
+
 # Completed
 
 1. Sidebar, Header vs. component designs
