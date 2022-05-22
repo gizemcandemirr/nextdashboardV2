@@ -85,7 +85,7 @@ const Sidebar = () => {
 						</div>
 						{showOrders && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/orders/Order" passHref>	
+							<Link href="/orders/Orders" passHref>	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Siparişler </a>		
@@ -99,7 +99,7 @@ const Sidebar = () => {
 									 	<a className="cursor-pointer"> Taslaklar </a>
 								</li>	
 								</Link>
-								<Link href="/orders/AbondonedPayment" passHref >
+								<Link href="/orders/Abondoned" passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Terkedilmiş Öğeler </a>
@@ -129,7 +129,7 @@ const Sidebar = () => {
 						</div>
 						{showProducts && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/products/product">	
+							<Link href="/products/Products">	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Ürünler </a>		

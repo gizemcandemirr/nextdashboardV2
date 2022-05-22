@@ -6,7 +6,7 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-function Drafts() {
+function Draft() {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [products, setProducts] =useState([""]);
 
@@ -76,4 +76,4 @@ function Drafts() {
 	)
 }
 
-export default Drafts
+export default Draft
