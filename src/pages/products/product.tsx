@@ -6,7 +6,7 @@ import DataTable from "react-data-table-component";
 import TableHeader from "../../components/customTable/TableHeader";
 import Layout from "../../components/layout/Layout";
 
-const products = () => {
+const Products = () => {
 	const [products, setProducts] = useState([""]);
 
 	const getProducts = async () => {
@@ -96,4 +96,4 @@ const products = () => {
 	);
 };
 
-export default products;
+export default Products;

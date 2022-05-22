@@ -5,7 +5,7 @@ import TableHeader from '../../components/customTable/TableHeader'
 import Layout from '../../components/layout/Layout'
 
 
-function users() {
+function Users() {
   const columns = React.useMemo(
     () => [
       {
@@ -68,4 +68,4 @@ function users() {
   )
 }
 
-export default users
+export default Users

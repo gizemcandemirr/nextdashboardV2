@@ -3,8 +3,10 @@ import Form from "../../components/form/customForm";
 import Layout from "../../components/layout/Layout";
 
 const userpermissions = () => {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [visible, setVisible] = useState(false);
 
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [type, setType] = useState("");
 
 	const addNewUser = () => {

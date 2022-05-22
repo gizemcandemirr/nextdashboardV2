@@ -8,7 +8,8 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-function orders() {
+function Orders() {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [products, setProducts] =useState([""]);
 
 
@@ -129,4 +130,4 @@ function orders() {
 	)
 }
 
-export default orders
+export default Orders

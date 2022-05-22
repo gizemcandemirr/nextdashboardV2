@@ -6,7 +6,8 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-function abondonedPayment() {
+const AbondonedPayment=()=> {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [products, setProducts] =useState([""]);
 
 
@@ -72,4 +73,4 @@ function abondonedPayment() {
 	)
 }
 
-export default abondonedPayment
+export default AbondonedPayment

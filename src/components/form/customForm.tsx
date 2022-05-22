@@ -381,7 +381,7 @@ const columns = React.useMemo(
 					<div className="pl-5">
 						<article>
 							<h3>Invitation E-Mails</h3>
-							<p>It includes Users we invite and don't log into the system</p>
+							<p>It includes Users we invite and dont log into the system</p>
 						</article>
 					</div>
 			
