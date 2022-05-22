@@ -65,7 +65,7 @@ function Orders() {
 		},
 		{
 			name:"Product Image",
-      selector: (row:any)  => <img src={row.images[0]?.fileUrl} width={100} height={80} />		
+      selector: (row:any)  => row.tags		
 		},
 		{
 			name:"edit",
