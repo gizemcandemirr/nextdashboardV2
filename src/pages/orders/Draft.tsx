@@ -7,63 +7,46 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-function Draft() {
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const [products, setProducts] =useState([""]);
-
-
-	const getProducts = async () => {
-		try {
-			const response= await axios.get("https://172.16.46.18/products");
-				setProducts(response.data.products)		
-		} catch (error) {
-			console.log(error);	
-		}
-	}
-
+function Draft({products}:any) {
+	
 
 	
-	const columns =[
+	const columns = [
 		{
-			name:"Product Name",
-      selector: (row:any)  => row.name
+			name: "Product Name",
+			selector: (row:any)  => row.title,
 		},
 		{
-			name:"Product description",
-      selector: (row:any)  => row.description,
-			conditionalCellStyles: [
-				{
-						when: (row:any)  => row.description === "asdasd",
-						style: {
-								backgroundColor: 'rgba(63, 195, 128, 0.9)',
-								color: 'white',
-								'&:hover': {
-										cursor: 'pointer',
-								},
-						},
-				},
-	
-		],
-},
-
-		{
-			name:"Product Image",
-      selector: (row:any)  => <Image src="/avatar.jpg" width={100} height={80} alt="" />		
+			name: "Product Image",
+			selector: (row:any)  => (
+				<img src={row.image} width={100} height={80} alt="" />
+			),
 		},
 		{
-			name:"edit",
-			selector: (row:any)  => <button>
-			<DotsVerticalIcon className="h-6 w-6" />
-		</button>
-		}
+			name: "Product Category",
+			selector: (row:any) => (
+				<div
+					className={
+						row.category === "men's clothing"
+							? "status active"
+							: row.category === "jewelery"
+							? "status draft"
+							: "status archived"
+					}
+				>
+				
+					<span> {row.category} </span>
+				</div>
+			),
+		},
+		{
+			name: "Price",
+			selector: (row:any)  => row.price
+		},
 	
-	]
+	];
+	
 
-	
-	
-	useEffect(() => {
-		getProducts();
-	}, []);
 
 	
 	return (
@@ -78,3 +61,13 @@ function Draft() {
 }
 
 export default Draft
+
+export async function getServerSideProps(context:any) {
+  const products = await fetch("https://fakestoreapi.com/products").then(
+    (res) => res.json()
+  );
+  return {
+    props: {
+    products,
+  }}
+}

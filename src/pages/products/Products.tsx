@@ -7,56 +7,43 @@ import DataTable from "react-data-table-component";
 import TableHeader from "../../components/customTable/TableHeader";
 import Layout from "../../components/layout/Layout";
 
-const Products = () => {
-	const [products, setProducts] = useState([""]);
-
-	const getProducts = async () => {
-		try {
-			const response = await axios.get("https://172.16.70.11/products");
-			setProducts(response.data.products);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+const Products = ({products}:any) => {
+console.log("pro",products)
 
 	const columns = [
 		{
 			name: "Product Name",
-			selector: (row:any)  => row.name,
+			selector: (row:any)  => row.title,
 		},
 		{
-			name: "Product description",
+			name: "Product Category",
 			selector: (row:any) => (
 				<div
 					className={
-						row.status === "active"
+						row.category === "men's clothing"
 							? "status active"
-							: row.status === "draft"
+							: row.category === "jewelery"
 							? "status draft"
 							: "status archived"
 					}
 				>
 				
-					<span> {row.status} </span>
+					<span> {row.category} </span>
 				</div>
 			),
 		},
 		{
-			name: "Stok",
-			selector: (row:any)  => row.stok
+			name: "Price",
+			selector: (row:any)  => row.price
 		},
 		{
-			name: "Tür",
-			selector: (row:any)  => row.type
-		},
-		{
-			name: "Satıcı",
-			selector: (row:any)  => row.sales
+			name: "Description",
+			selector: (row:any)  => row.description
 		},
 		{
 			name: "Product Image",
 			selector: (row:any)  => (
-				<Image src="/avatar.jpg" width={100} height={80} alt="" />
+				<img src={row.image} width={100} height={80} alt="" />
 			),
 		},
 		{
@@ -72,18 +59,16 @@ const Products = () => {
 		},
 	];
 
-	useEffect(() => {
-		getProducts();
-	}, []);
+
 
 	return (
 		<Layout title="ProductList">
 			<div>
-				<div className="px-5 py-5 ml-5 mr-5">
+				<div className="ml-5 mr-5">
 					<TableHeader title="Products" />
 				</div>
 
-				<div className="p-5">
+				<div className="p-5 w-screen-7xl">
 					<DataTable
 						columns={columns}
 						data={products}
@@ -98,3 +83,13 @@ const Products = () => {
 };
 
 export default Products;
+
+export async function getServerSideProps(context:any) {
+  const products = await fetch("https://fakestoreapi.com/products").then(
+    (res) => res.json()
+  );
+  return {
+    props: {
+    products,
+  }}
+}

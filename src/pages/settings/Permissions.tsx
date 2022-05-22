@@ -26,8 +26,8 @@ const Permissions = () => {
 	return (
 		<Layout>
 			{!visible ? (
-				<div className=" flex gap-4 pl-2 pr-2 bg-white dark:bg-gray-900">
-					<div className="w-full  rounded-xl dark:border-gray-700">
+				<div className=" flex p-6 bg-white dark:bg-gray-900">
+					<div className="w-full p-4 rounded-xl dark:border-gray-700">
 						<div className="flex justify-between rounded p-5 border-2 mb-5 border-gray-200 dark:border-gray-700 ">
 							<div className="flex text-gray-500 ">
 								<div className="pr-5">

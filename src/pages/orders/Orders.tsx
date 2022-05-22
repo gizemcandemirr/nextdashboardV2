@@ -8,77 +8,45 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-function Orders() {
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const [products, setProducts] =useState([""]);
-
-
-	const getProducts = async () => {
-		try {
-			const response= await axios.get("https://172.16.46.18/products");
-				setProducts(response.data.products)		
-		} catch (error) {
-			console.log(error);	
-		}
-	}
+function Orders({products}:any) {
 
 
 	
-	const columns =[
+	const columns = [
 		{
-			name:"Product Name",
-      selector: (row:any)  => row.name,
-			conditionalCellStyles: [
-				{
-						when: (row:any)  => row.name === "KEMERLİ KLOŞ ETEK",
-						style: {
-								color: 'red',
-						},
-				},
-	
-		],
+			name: "Product Name",
+			selector: (row:any)  => row.title,
 		},
 		{
-			name:"Product description",
-      selector: (row:any)  => row.description,
-			conditionalCellStyles: [
-				{
-						when: (row:any)  => row.description === "asdasd",
-						style: {
-								backgroundColor: 'rgba(63, 195, 128, 0.9)',
-								color: 'white',
-								'&:hover': {
-										cursor: 'pointer',
-								},
-						},
-				},
-	
-		],
-    },
-		{
-			name:"Price",
-      selector: (row:any)  => row.price
+			name: "Product Image",
+			selector: (row:any)  => (
+				<img src={row.image} width={100} height={80} alt="" />
+			),
 		},
 		{
-			name:"Tags",
-      selector: (row:any)  => row.tags
+			name: "Product Category",
+			selector: (row:any) => (
+				<div
+					className={
+						row.category === "men's clothing"
+							? "status active"
+							: row.category === "jewelery"
+							? "status draft"
+							: "status archived"
+					}
+				>
+				
+					<span> {row.category} </span>
+				</div>
+			),
 		},
 		{
-			name:"Product Image",
-      selector: (row:any)  => row.tags		
+			name: "Price",
+			selector: (row:any)  => row.price
 		},
-		{
-			name:"edit",
-			selector: (row:any)  => <button>
-			<DotsVerticalIcon className="h-6 w-6" />
-		</button>
-		}
 	
-	]
+	];
 	
-	useEffect(() => {
-		getProducts();
-	}, []);
 	
 	return (
 	<MainLayout title="OrderList">
@@ -131,3 +99,13 @@ function Orders() {
 }
 
 export default Orders
+
+export async function getServerSideProps(context:any) {
+  const products = await fetch("https://fakestoreapi.com/products").then(
+    (res) => res.json()
+  );
+  return {
+    props: {
+    products,
+  }}
+}

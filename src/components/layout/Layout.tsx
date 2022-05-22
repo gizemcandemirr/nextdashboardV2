@@ -13,7 +13,7 @@ const Layout = ({title,children}:any) => {
        <div className='w-64'>
          <Sidebar/>
         </div>
-        <div className='flex-1 min-w-0'>
+        <div className='flex-1 min-w-0 p-4'>
            <Header /> 
 		      	{title && <RoadHeader title={title} /> }
             {children}
