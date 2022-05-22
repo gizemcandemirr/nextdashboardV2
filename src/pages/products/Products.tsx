@@ -1,5 +1,6 @@
 import { DotsVerticalIcon } from "@heroicons/react/solid";
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
@@ -55,7 +56,7 @@ const Products = () => {
 		{
 			name: "Product Image",
 			selector: (row:any)  => (
-				<img src={row.images[0]?.fileUrl} width={100} height={80} />
+				<Image src="/avatar.jpg" width={100} height={80} alt="" />
 			),
 		},
 		{

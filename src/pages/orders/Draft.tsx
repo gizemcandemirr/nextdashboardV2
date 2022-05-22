@@ -1,5 +1,6 @@
 import { DotsVerticalIcon } from '@heroicons/react/solid';
 import axios from 'axios';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
 import MainLayout from '../../layout/MainLayout/MainLayout';
@@ -47,7 +48,7 @@ function Draft() {
 
 		{
 			name:"Product Image",
-      selector: (row:any)  => <img src={row.images[0].fileUrl} width={100} height={80} />		
+      selector: (row:any)  => <Image src="/avatar.jpg" width={100} height={80} alt="" />		
 		},
 		{
 			name:"edit",

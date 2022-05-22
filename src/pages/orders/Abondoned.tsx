@@ -6,7 +6,7 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 
 
 
-const Abondoned=()=> {
+function Abondoned(){
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [products, setProducts] =useState([""]);
 
@@ -46,7 +46,7 @@ const Abondoned=()=> {
 
 		{
 			name:"Product Image",
-      selector: (row:any)  => <img src={row.images[0].fileUrl} width={100} height={80} />		
+      selector: (row:any)  => <img src="/avatar.jpg" width={100} height={80} />		
 		},
 		{
 			name:"edit",

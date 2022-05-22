@@ -93,7 +93,7 @@ const Sidebar = () => {
 							</div>
 							</Link>
 
-                <Link href="/orders/Drafts" passHref >
+                <Link href="/orders/Draft" passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Taslaklar </a>
@@ -129,7 +129,7 @@ const Sidebar = () => {
 						</div>
 						{showProducts && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/products/Products">	
+							<Link href="/products/Products"  passHref>	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Ürünler </a>		
@@ -137,26 +137,26 @@ const Sidebar = () => {
 							</div>
 							</Link>
 
-                <Link href="/products" >
+                <Link href="/dashboard"  passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Stok </a>
 								</li>	
 								</Link>
-								<Link href="/products" >
+								<Link href="/dashboard"  passHref>
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Transferler </a>
 								</li>	
 								</Link>
-								<Link href="/products" >
+								<Link href="/dashboard"  passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Koleksiyonlar </a>
 								</li>	
 								</Link>
 
-								<Link href="/products" >
+								<Link href="/dashboard"  passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 									
 									 	<a className="cursor-pointer"> Hediye Kartları </a>
@@ -198,7 +198,7 @@ const Sidebar = () => {
 						</div>
 						{showAnalistic && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/settings/users">	
+							<Link href="/settings/Permissions"  passHref>	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Siparişler  </a>		
@@ -206,7 +206,7 @@ const Sidebar = () => {
 							</div>
 							</Link>
 
-                <Link href="/settings/userpermissions" >
+                <Link href="/settings/Permissions"  passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 								
 									
@@ -215,7 +215,7 @@ const Sidebar = () => {
 								
 								</li>	
 								</Link>
-								<Link href="/settings/userpermissions" >
+								<Link href="/settings/Permissions"  passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 								
 									
@@ -234,7 +234,7 @@ const Sidebar = () => {
 						<GiftIcon width={24} height={24} />
 
 						</div>
-						<Link href="/">
+						<Link href="/dashboard">
 							<a className="inline-block text-sm w-full pl-8 pr-4 py-2 hover:bg-gray-400 rounded focus:outline-none focus:bg-violet-200 focus:ring-2 ">
 								Discount
 							</a>
@@ -262,7 +262,7 @@ const Sidebar = () => {
 						</div>
 						{showOptions && (
 							<ul className="flex flex-col pl-2 text-gray-500 border-l border-violet-200">
-							<Link href="/settings/users">	
+							<Link href="/settings/User" passHref >	
 							<div>
 							<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 							 <a className="cursor-pointer">Users  </a>		
@@ -270,7 +270,7 @@ const Sidebar = () => {
 							</div>
 							</Link>
 
-                <Link href="/settings/userpermissions" >
+                <Link href="/settings/Permissions" passHref >
 									<li className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-violet-200">
 								
 									
