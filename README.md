@@ -1,4 +1,4 @@
-## 💪 I used data table component, this is really awesome for nextjs! Useful, basic and has much more custom elements. How to can I use ? And keeping link i show for you at my youtube channel, enjoy jacking!
+## 💪 I used data table component, this is really awesome for nextjs! Useful, basic and has much more custom elements. How to can I use ? And keeping link i show for you at my youtube channel, enjoy hacking!
   https://www.youtube.com/watch?v=lZDnUubIUOg&t=2s
 
 ## View
